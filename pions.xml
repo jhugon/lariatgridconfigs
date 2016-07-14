@@ -7,20 +7,21 @@
 <!-- for v5, fixed outnames to use jobid in fcl -->
 <!-- for v6, fixed outnames to use run, subrun in fcl and 2 jobs 100/evts/job-->
 <!-- for v7, increase to 50000 total-->
-<!-- for v8, Use RecoMC.fcl. Only 5000 events and 10jobs-->
+<!-- for v8, Use RecoMC.fcl. Only 5000 events and 10jobs. Jobs wouldn't end for some reason-->
+<!-- for v9, do RecoMC.fcl and 10 jobs of 1000 events with new tarball d99b09d6c83-->
 
 <!DOCTYPE project [
 <!ENTITY release "v01_12_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_v8">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_v9">
 <!ENTITY tag "TestOfBatchJobs">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>5000</numevents>
+  <numevents>10000</numevents>
   <!-- Try to do 500 events/job  ~2.5hr for reco -->
 
   <!-- Operating System -->
@@ -33,7 +34,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e7:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_jhugon_PionAbsChEx_abc59058.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_d99b09d6c83.tar</local>
   </larsoft>
 
   <!-- Project stages -->
