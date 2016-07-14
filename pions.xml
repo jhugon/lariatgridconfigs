@@ -7,19 +7,20 @@
 <!-- for v5, fixed outnames to use jobid in fcl -->
 <!-- for v6, fixed outnames to use run, subrun in fcl and 2 jobs 100/evts/job-->
 <!-- for v7, increase to 50000 total-->
+<!-- for v8, Use RecoMC.fcl. Only 5000 events and 10jobs-->
 
 <!DOCTYPE project [
 <!ENTITY release "v01_12_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_v7">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_v8">
 <!ENTITY tag "TestOfBatchJobs">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>50000</numevents>
+  <numevents>5000</numevents>
   <!-- Try to do 500 events/job  ~2.5hr for reco -->
 
   <!-- Operating System -->
@@ -41,15 +42,16 @@
       <fcl>prodsingle_lariat_PiAbsAndChEx_pip.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/gensimdigi/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/gensimdigi/&name;</workdir>
-      <numjobs>50</numjobs>
+      <numjobs>10</numjobs>
       <datatier>simulated</datatier>
   </stage>
 
   <stage name="reco">
-      <fcl>Reco_MC_PiAbsAndChEx.fcl</fcl>
+      <inputlist>/lariat/app/users/jhugon/genPionAbsAndChEx/pip_v7_genfiles_10k.txt</inputlist>
+      <fcl>RecoMC.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/reco/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/reco/&name;</workdir>
-      <numjobs>50</numjobs>
+      <numjobs>10</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
 
