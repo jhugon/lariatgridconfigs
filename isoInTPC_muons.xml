@@ -7,7 +7,7 @@
 <!ENTITY release "v01_12_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_mup_v10">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_mup_v1">
 <!ENTITY tag "TestOfBatchJobs">
 ]>
 
