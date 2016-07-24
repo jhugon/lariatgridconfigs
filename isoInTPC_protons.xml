@@ -8,7 +8,7 @@
 <!ENTITY release "v01_12_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_mup_v2">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v2">
 <!ENTITY tag "TestOfBatchJobs">
 ]>
 
@@ -34,7 +34,7 @@
   <!-- Project stages -->
 
   <stage name="gensimdigi">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_mup.fcl</fcl>
+      <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_p.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/gensimdigi/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/gensimdigi/&name;</workdir>
       <numjobs>15</numjobs>
