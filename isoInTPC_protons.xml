@@ -3,19 +3,20 @@
 <!-- Production Project -->
 <!-- for v1 first try 2bc783e8460 -->
 <!-- for v2 increase nevents to 15000 -->
+<!-- for v3 increase nevents to 100000 -->
 
 <!DOCTYPE project [
 <!ENTITY release "v01_12_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v2">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v3">
 <!ENTITY tag "TestOfBatchJobs">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>15000</numevents>
+  <numevents>100000</numevents>
   <!-- Try to do 500 events/job  ~2.5hr for reco -->
 
   <!-- Operating System -->
@@ -37,7 +38,7 @@
       <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_p.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/gensimdigi/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/gensimdigi/&name;</workdir>
-      <numjobs>15</numjobs>
+      <numjobs>100</numjobs>
       <datatier>simulated</datatier>
   </stage>
 
@@ -45,7 +46,7 @@
       <fcl>RecoMC.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/reco/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/reco/&name;</workdir>
-      <numjobs>15</numjobs>
+      <numjobs>100</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
 
