@@ -10,20 +10,21 @@
 <!-- for v8, Use RecoMC.fcl. Only 5000 events and 10jobs. Jobs wouldn't end for some reason-->
 <!-- for v9, do RecoMC.fcl and 10 jobs of 1000 events with new tarball d99b09d6c83-->
 <!-- for v10, do RecoMC.fcl and use an input text file and tarball d99b09d6c83-->
+<!-- for v11, do full gen of 100k events 1000 evts/job, should be same as v10 just more stats-->
 
 <!DOCTYPE project [
 <!ENTITY release "v01_12_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_v10">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_v11">
 <!ENTITY tag "TestOfBatchJobs">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>50000</numevents>
-  <!-- Try to do 500 events/job  ~2.5hr for reco -->
+  <numevents>100000</numevents>
+  <!-- Try to do 1000 events/job  ~5hr for reco -->
 
   <!-- Operating System -->
   <os>SL6</os>
@@ -44,16 +45,15 @@
       <fcl>prodsingle_lariat_PiAbsAndChEx_pip.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/gensimdigi/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/gensimdigi/&name;</workdir>
-      <numjobs>50</numjobs>
+      <numjobs>100</numjobs>
       <datatier>simulated</datatier>
   </stage>
 
   <stage name="reco">
-      <inputlist>/lariat/app/users/jhugon/genPionAbsAndChEx/pip_v7_genfiles.txt</inputlist>
       <fcl>RecoMC.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/reco/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/reco/&name;</workdir>
-      <numjobs>50</numjobs>
+      <numjobs>100</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
 
