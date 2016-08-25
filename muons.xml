@@ -56,6 +56,14 @@
       <datatier>reconstructed-2d</datatier>
   </stage>
 
+  <stage name="ana">
+      <fcl>AnaTree.fcl</fcl>
+      <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/ana/&name;</outdir>
+      <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/ana/&name;</workdir>
+      <numjobs>50</numjobs>
+      <datatier>reconstructed-2d</datatier>
+  </stage>
+
   <!-- file type -->
   <filetype>&file_type;</filetype>
 
