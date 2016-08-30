@@ -4,20 +4,21 @@
 <!-- for v1 first try 2bc783e8460 -->
 <!-- for v2 increase nevents to 15000 -->
 <!-- for v3 increase nevents to 100000 -->
+<!-- for v4 new tarball test 2000 -->
 
 <!DOCTYPE project [
 <!ENTITY release "v01_12_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_kp_v3">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_kp_v4">
 <!ENTITY tag "TestOfBatchJobs">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>100000</numevents>
-  <!-- Try to do 500 events/job  ~2.5hr for reco -->
+  <numevents>2000</numevents>
+  <!-- Try to do 1000 events/job  ~5hr for reco -->
 
   <!-- Operating System -->
   <os>SL6</os>
@@ -29,7 +30,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e7:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_2bc783e8460.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ff8a1115f0f.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -38,7 +39,7 @@
       <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_kp.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/gensimdigi/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/gensimdigi/&name;</workdir>
-      <numjobs>100</numjobs>
+      <numjobs>10</numjobs>
       <datatier>simulated</datatier>
   </stage>
 
@@ -46,7 +47,7 @@
       <fcl>RecoMC.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/reco/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/reco/&name;</workdir>
-      <numjobs>100</numjobs>
+      <numjobs>10</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
 
