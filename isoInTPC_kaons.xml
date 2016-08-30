@@ -5,19 +5,20 @@
 <!-- for v2 increase nevents to 15000 -->
 <!-- for v3 increase nevents to 100000 -->
 <!-- for v4 new tarball test 2000 -->
+<!-- for v5 increase to 100000 -->
 
 <!DOCTYPE project [
 <!ENTITY release "v01_12_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_kp_v4">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_kp_v5">
 <!ENTITY tag "TestOfBatchJobs">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>2000</numevents>
+  <numevents>100000</numevents>
   <!-- Try to do 1000 events/job  ~5hr for reco -->
 
   <!-- Operating System -->
@@ -39,7 +40,7 @@
       <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_kp.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/gensimdigi/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/gensimdigi/&name;</workdir>
-      <numjobs>10</numjobs>
+      <numjobs>100</numjobs>
       <datatier>simulated</datatier>
   </stage>
 
@@ -47,7 +48,7 @@
       <fcl>RecoMC.fcl</fcl>
       <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/reco/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/reco/&name;</workdir>
-      <numjobs>10</numjobs>
+      <numjobs>100</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
 
