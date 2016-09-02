@@ -47,7 +47,6 @@
   </stage>
 
   <stage name="reco">
-      <inputlist>/lariat/app/users/jhugon/genPionAbsAndChEx/kp_v7_genfiles.txt</inputlist>
       <fcl>RecoMC.fcl</fcl>
       <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/reco/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/reco/&name;</workdir>
