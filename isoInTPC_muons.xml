@@ -38,7 +38,7 @@
 
   <stage name="gensimdigi">
       <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_mup.fcl</fcl>
-      <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/gensimdigi/&name;</outdir>
+      <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/gensimdigi/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/gensimdigi/&name;</workdir>
       <numjobs>100</numjobs>
       <datatier>simulated</datatier>
@@ -46,7 +46,7 @@
 
   <stage name="reco">
       <fcl>RecoMC.fcl</fcl>
-      <outdir>/pnfs/lariat/persistent/users/jhugon/&release;/reco/&name;</outdir>
+      <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/reco/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/reco/&name;</workdir>
       <numjobs>100</numjobs>
       <datatier>reconstructed-2d</datatier>
