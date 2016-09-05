@@ -31,7 +31,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e7:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ff8a1115f0f.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_dc497fb42a4e9f23.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -48,6 +48,14 @@
       <fcl>RecoMC.fcl</fcl>
       <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/reco/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/reco/&name;</workdir>
+      <numjobs>100</numjobs>
+      <datatier>reconstructed-2d</datatier>
+  </stage>
+
+  <stage name="likelihood">
+      <fcl>dEdxAllTracksNoFile.fcl</fcl>
+      <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/likelihood/&name;</outdir>
+      <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/likelihood/&name;</workdir>
       <numjobs>100</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
