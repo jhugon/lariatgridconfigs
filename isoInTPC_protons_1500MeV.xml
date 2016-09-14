@@ -27,7 +27,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e7:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_6b271d461bcc4.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_5207a01a2707.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -48,10 +48,10 @@
       <datatier>reconstructed-2d</datatier>
   </stage>
 
-  <stage name="likelihood">
+  <stage name="likelihoodv2">
       <fcl>dEdxAllTracksNoFile.fcl</fcl>
-      <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/likelihood/&name;</outdir>
-      <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/likelihood/&name;</workdir>
+      <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/likelihoodv2/&name;</outdir>
+      <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/likelihoodv2/&name;</workdir>
       <numjobs>50</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
