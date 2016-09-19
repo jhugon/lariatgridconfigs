@@ -1,28 +1,20 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v2 just changed the config file in project, not in the tarball. lets see if it changes: Oops, forgot to rebuild. -->
-<!-- for v3 just changed the config file in project, and rebuild, not in the tarball. lets see if it changes: Yes!-->
-<!-- for v4, increase to 10000 total -->
-<!-- for v5, fixed outnames to use jobid in fcl -->
-<!-- for v6, fixed outnames to use run, subrun in fcl and 2 jobs 100/evts/job-->
-<!-- for v7, increase to 50000 total-->
-<!-- for v8, do RecoMC.fcl and 10 jobs of 1000 events. didn't work: outfile RecoMC.root. Must need to rebuild tarball to access included .fcl-->
-<!-- for v9, do RecoMC.fcl and 10 jobs of 1000 events with new tarball d99b09d6c83-->
-<!-- for v10, do RecoMC.fcl and use an input text file and tarball d99b09d6c83-->
+<!-- for v1 first try with v06_06_01, just 5000, 10 jobs -->
 
 <!DOCTYPE project [
-<!ENTITY release "v01_12_01">
+<!ENTITY release "v06_06_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_p_v10">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_p_v1">
 <!ENTITY tag "TestOfBatchJobs">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>50000</numevents>
+  <numevents>5000</numevents>
   <!-- Try to do 500 events/job  ~2.5hr for reco -->
 
   <!-- Operating System -->
@@ -34,8 +26,8 @@
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
-      <qual>e7:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_d99b09d6c83.tar</local>
+      <qual>e10:prof</qual>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_35fdffd5fd2e5.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -44,7 +36,7 @@
       <fcl>prodsingle_lariat_PiAbsAndChEx_p.fcl</fcl>
       <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/gensimdigi/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/gensimdigi/&name;</workdir>
-      <numjobs>50</numjobs>
+      <numjobs>10</numjobs>
       <datatier>simulated</datatier>
   </stage>
 
@@ -52,7 +44,7 @@
       <fcl>RecoMC.fcl</fcl>
       <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/reco/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/reco/&name;</workdir>
-      <numjobs>50</numjobs>
+      <numjobs>10</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
 
@@ -60,7 +52,7 @@
       <fcl>AnaTree.fcl</fcl>
       <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/ana/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/ana/&name;</workdir>
-      <numjobs>50</numjobs>
+      <numjobs>10</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
 

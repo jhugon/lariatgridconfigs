@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v1 first try with v06_06_01, just 5000, 10 jobs -->
+<!-- for v1 first try with v06_06_01 and e+, just 5000, 10 jobs -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_06_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_kp_v1">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_ep_v1">
 <!ENTITY tag "TestOfBatchJobs">
 ]>
 
@@ -33,7 +33,7 @@
   <!-- Project stages -->
 
   <stage name="gensimdigi">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_kp.fcl</fcl>
+      <fcl>prodsingle_lariat_PiAbsAndChEx_ep.fcl</fcl>
       <outdir>/pnfs/lariat/scratch/users/jhugon/&release;/gensimdigi/&name;</outdir>
       <workdir>/lariat/app/users/jhugon/lariatOffline/&release;/gensimdigi/&name;</workdir>
       <numjobs>10</numjobs>
