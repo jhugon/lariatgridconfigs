@@ -3,6 +3,7 @@
 <!-- Production Project -->
 <!-- for v1 first try with v06_06_01, just 5000, 10 jobs -->
 <!-- for v2 200k events, 200 jobs -->
+<!-- likelihoodv2 uses the new tarball with p interpolation -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_06_01">
@@ -31,7 +32,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_35fdffd5fd2e5.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c44b56a_larana_afcad95.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -57,6 +58,15 @@
       <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/likelihood/&name;</outdir>
       <workdir>&myworkdir;/&release;/likelihood/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+  </stage>
+
+  <stage name="likelihoodv2">
+      <fcl>dEdxAllTracksNoFile.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/likelihoodv2/&name;</outdir>
+      <workdir>&myworkdir;/&release;/likelihoodv2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
