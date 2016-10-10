@@ -20,7 +20,7 @@
 
   <!-- Project size -->
   <numevents>200000</numevents>
-  <!-- Try to do 1000 events/job  ~5hr for reco -->
+  <!-- Try to do 4500 events/job  ~5hr for reco -->
 
   <!-- Operating System -->
   <os>SL6</os>
