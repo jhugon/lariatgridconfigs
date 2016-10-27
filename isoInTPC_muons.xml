@@ -32,7 +32,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c44b56a_larana_afcad95.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c44b56a_larana_b169967.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -54,7 +54,7 @@
   </stage>
 
   <stage name="likelihood">
-      <fcl>dEdxAllTracksNoFile.fcl</fcl>
+      <fcl>likelihoodPIDMaker.fcl</fcl>
       <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/likelihood/&name;</outdir>
       <workdir>&myworkdir;/&release;/likelihood/&name;</workdir>
@@ -63,7 +63,7 @@
   </stage>
 
   <stage name="likelihoodv2">
-      <fcl>dEdxAllTracksNoFile.fcl</fcl>
+      <fcl>likelihoodPIDMaker.fcl</fcl>
       <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/likelihoodv2/&name;</outdir>
       <workdir>&myworkdir;/&release;/likelihoodv2/&name;</workdir>
