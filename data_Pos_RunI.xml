@@ -1,7 +1,10 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v1 first try on data, def: Lovely1_Pos_RunI_elenag_v02 -->
+<!-- for v1 first try on data, def: Lovely1_Pos_RunI_elenag_v02 
+     Trying to make look like Jonathan's:
+     http://lartpc-docdb.fnal.gov:8080/cgi-bin/RetrieveFile?docid=1940&filename=UTA_LArIATsoft_v3.pdf&version=2
+     -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_06_01">
@@ -39,16 +42,18 @@
       <fcl>Reco.fcl</fcl>
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+      <memory>4000</memory>
+      <jobsub>--expected-lifetime=long</jobsub>
   </stage>
 
   <stage name="ana">
       <fcl>AnaTree.fcl</fcl>
       <outdir>&myoutdir;/&release;/ana/&name;</outdir>
       <workdir>&myworkdir;/&release;/ana/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
   </stage>
 
   <!-- file type -->
