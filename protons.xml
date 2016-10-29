@@ -2,7 +2,7 @@
 
 <!-- Production Project -->
 <!-- for v1 first try with v06_06_01, just 5000, 10 jobs -->
-<!-- for v2 104000 events, 1300 events/job -->
+<!-- for v2 52000 events, 1300 events/job -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_06_01">
@@ -12,13 +12,13 @@
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "80">
+<!ENTITY njobs "40">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>104000</numevents>
+  <numevents>52000</numevents>
   <!-- Try to do 1300 events/job  ~5hr for reco -->
 
   <!-- Operating System -->
@@ -31,7 +31,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_35fdffd5fd2e5.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_b22396f_larana_6356051.tar</local>
   </larsoft>
 
   <!-- Project stages -->
