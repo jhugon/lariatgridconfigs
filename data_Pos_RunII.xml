@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v1 first try on data, def: Lovely1_Pos_RunI_elenag_v02 
+<!-- for v1 first try on data, def: Lovely1_Pos_RunII_elenag_v02 
      Trying to make look like Jonathan's:
      http://lartpc-docdb.fnal.gov:8080/cgi-bin/RetrieveFile?docid=1940&filename=UTA_LArIATsoft_v3.pdf&version=2
      -->
@@ -10,11 +10,11 @@
 <!ENTITY release "v06_06_01">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_Lovely1_Pos_RunI_elanag_v02_v01">
+<!ENTITY name "lariat_data_Lovely1_Pos_RunII_elanag_v02_v01">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "1000">
+<!ENTITY njobs "2300">
 ]>
 
 <project name="&name;">
@@ -38,7 +38,7 @@
   <!-- Project stages -->
 
   <stage name="reco">
-      <inputdef>Lovely1_Pos_RunI_elenag_v02</inputdef>
+      <inputdef>Lovely1_Pos_RunII_elenag_v02</inputdef>
       <fcl>Reco.fcl</fcl>
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
@@ -46,14 +46,6 @@
       <numjobs>&njobs;</numjobs>
       <memory>4000</memory>
       <jobsub>--expected-lifetime=long</jobsub>
-  </stage>
-
-  <stage name="wctofreco">
-      <fcl>WCTOFRecoOnly.fcl</fcl>
-      <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
-      <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
-      <datatier>reconstructed-2d</datatier>
-      <numjobs>&njobs;</numjobs>
   </stage>
 
   <stage name="ana">
