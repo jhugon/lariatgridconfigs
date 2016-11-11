@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+
+<!-- Production Project -->
+<!-- for v1 first try on my own data def jhugon_run4295
+     -->
+
+<!DOCTYPE project [
+<!ENTITY release "v06_06_01">
+<!ENTITY file_type "data">
+<!ENTITY run_type "physics">
+<!ENTITY name "lariat_data_jhugon_run4295_v01">
+<!ENTITY tag "TestOfBatchJobs">
+<!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
+<!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
+<!ENTITY njobs "5">
+]>
+
+<project name="&name;">
+
+  <!-- Project size -->
+  <numevents>-1</numevents>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+
+  <!-- Larsoft information -->
+  <larsoft>
+      <tag>&release;</tag>
+      <qual>e10:prof</qual>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_d782be9_larana_6356051.tar</local>
+  </larsoft>
+
+  <!-- Project stages -->
+
+  <stage name="reco">
+      <inputdef>jhugon_run4295</inputdef>
+      <fcl>WCTOFRecoOnly.fcl</fcl>
+      <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>
