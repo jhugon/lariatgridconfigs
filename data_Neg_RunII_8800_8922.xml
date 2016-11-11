@@ -1,24 +1,26 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v1 first try on my own data def jhugon_run4295, 100 files
+<!-- for v1 first try on my def jhugon_Neg_RunII_8800_8922 with 2096 files
+     should be 70 jobs at 30 files/job, but gave 120, just in case
      -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_06_01">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_jhugon_run4295_v01">
+<!ENTITY name "lariat_data_jhugon_Neg_RunII_8800_8922_v01">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "5">
+<!ENTITY njobs "120">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
   <numevents>-1</numevents>
+  <maxfilesperjob>30</maxfilesperjob> <!-- 60 for run I, 30 for run II-->
 
   <!-- Operating System -->
   <os>SL6</os>
@@ -36,7 +38,7 @@
   <!-- Project stages -->
 
   <stage name="wctofreco">
-      <inputdef>jhugon_run4295</inputdef>
+      <inputdef>jhugon_Neg_RunII_8800_8922</inputdef>
       <fcl>WCTOFRecoOnly.fcl</fcl>
       <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
