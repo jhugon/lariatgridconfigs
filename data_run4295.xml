@@ -30,7 +30,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_d782be9_larana_6356051.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_d12a75c_larana_6356051.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -40,6 +40,14 @@
       <fcl>WCTOFRecoOnly.fcl</fcl>
       <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+  </stage>
+
+  <stage name="beamLineAna">
+      <fcl>beamLineAnaTree.fcl</fcl>
+      <outdir>&myoutdir;/&release;/beamLineAna/&name;</outdir>
+      <workdir>&myworkdir;/&release;/beamLineAna/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
   </stage>
