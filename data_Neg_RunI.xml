@@ -8,7 +8,7 @@
 <!-- trying again, this time beamline only and less jobs, and max 60 files/job -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_06_01">
+<!ENTITY release "v06_15_00">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
 <!ENTITY name "lariat_data_Lovely1_Neg_RunI_elanag_v02_v01">
@@ -34,10 +34,30 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_d12a75c_larana_6356051.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_e4a74ad_larana_57aedb1.tar</local>
   </larsoft>
 
   <!-- Project stages -->
+
+  <stage name="reco">
+      <inputdef>Lovely1_Neg_RunI_elenag_v02</inputdef>
+      <fcl>Reco.fcl</fcl>
+      <outdir>&myoutdir;/&release;/reco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/reco/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+      <memory>4000</memory>
+      <jobsub>--expected-lifetime=long</jobsub>
+  </stage>
+
+  <stage name="ana">
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <fcl>AnaTree.fcl</fcl>
+      <outdir>&myoutdir;/&release;/ana/&name;</outdir>
+      <workdir>&myworkdir;/&release;/ana/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+  </stage>
 
   <stage name="wctofreco">
       <inputdef>Lovely1_Neg_RunI_elenag_v02</inputdef>
@@ -46,13 +66,13 @@
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
-      <jobsub>--expected-lifetime=long</jobsub>
   </stage>
 
   <stage name="beamLineAna">
+      <inputlist>&myoutdir;/&release;/wctofreco/&name;/files.list</inputlist>
       <fcl>beamLineAnaTree.fcl</fcl>
-      <outdir>&myoutdir;/&release;/ana/&name;</outdir>
-      <workdir>&myworkdir;/&release;/ana/&name;</workdir>
+      <outdir>&myoutdir;/&release;/beamLineAna/&name;</outdir>
+      <workdir>&myworkdir;/&release;/beamLineAna/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
   </stage>
