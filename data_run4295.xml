@@ -19,6 +19,7 @@
 
   <!-- Project size -->
   <numevents>-1</numevents>
+  <maxfilesperjob>20</maxfilesperjob> <!-- 60 for run I, 30 for run II-->
 
   <!-- Operating System -->
   <os>SL6</os>
