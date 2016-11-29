@@ -1,25 +1,23 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v1 first try with v06_06_01, just 5000, 10 jobs -->
-<!-- for v2 200k events, 200 jobs -->
-<!-- likelihoodv2 uses the new tarball with p interpolation -->
+<!-- for v1 first try with v06_15_00, just 1000, 10 jobs -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_06_01">
+<!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_to1500MeV_p_v2">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_to1500MeV_p_v1">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "200">
+<!ENTITY njobs "10">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>200000</numevents>
+  <numevents>1000</numevents>
   <!-- Try to do 4500 events/job  ~5hr for reco -->
 
   <!-- Operating System -->
@@ -32,7 +30,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c44b56a_larana_afcad95.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_e4a74ad_larana_57aedb1.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -54,19 +52,10 @@
   </stage>
 
   <stage name="likelihood">
-      <fcl>dEdxAllTracksNoFile.fcl</fcl>
+      <fcl>likelihoodPIDMaker.fcl</fcl>
       <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/likelihood/&name;</outdir>
       <workdir>&myworkdir;/&release;/likelihood/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>reconstructed-2d</datatier>
-  </stage>
-
-  <stage name="likelihoodv2">
-      <fcl>dEdxAllTracksNoFile.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
-      <outdir>&myoutdir;/&release;/likelihoodv2/&name;</outdir>
-      <workdir>&myworkdir;/&release;/likelihoodv2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
