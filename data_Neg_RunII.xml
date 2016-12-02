@@ -40,7 +40,7 @@
 
   <stage name="reco">
       <inputdef>Lovely1_Neg_RunII_elenag</inputdef>
-      <fcl>Reco.fcl</fcl>
+      <fcl>Reco_run2.fcl</fcl>
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
@@ -60,7 +60,7 @@
 
   <stage name="wctofreco">
       <inputdef>Lovely1_Neg_RunII_elenag</inputdef>
-      <fcl>WCTOFRecoOnly.fcl</fcl>
+      <fcl>WCTOFRecoOnly_run2.fcl</fcl>
       <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>

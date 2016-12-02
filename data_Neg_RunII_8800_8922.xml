@@ -39,7 +39,7 @@
 
   <stage name="wctofreco">
       <inputdef>jhugon_Neg_RunII_8800_8922</inputdef>
-      <fcl>WCTOFRecoOnly.fcl</fcl>
+      <fcl>WCTOFRecoOnly_run2.fcl</fcl>
       <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
