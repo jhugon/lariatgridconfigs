@@ -10,14 +10,14 @@
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "5">
+<!ENTITY njobs "45">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
   <numevents>-1</numevents>
-  <maxfilesperjob>45</maxfilesperjob> <!-- 60 for run I, 30 for run II-->
+  <maxfilesperjob>20</maxfilesperjob> <!-- 60 for run I, 30 for run II-->
 
   <!-- Operating System -->
   <os>SL6</os>
