@@ -11,14 +11,14 @@
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "70">
+<!ENTITY njobs "130">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>560000</numevents>
-  <!-- Try to do 8000 events/job  ~5hr for reco -->
+  <numevents>585000</numevents>
+  <!-- Try to do 4500 events/job to keep from filling disk -->
 
   <!-- Operating System -->
   <os>SL6</os>
