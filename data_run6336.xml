@@ -6,7 +6,7 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_jhugon_run6336_v01">
+<!ENTITY name "lariat_data_jhugon_run6336_v02">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
