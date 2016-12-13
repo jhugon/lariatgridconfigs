@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 
-<!-- Production Project -->
+<!-- 2603 files total, few events per file -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_15_00">
@@ -10,13 +10,14 @@
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "3264">
+<!ENTITY njobs "70">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
   <numevents>-1</numevents>
+  <maxfilesperjob>75</maxfilesperjob>
 
   <!-- Operating System -->
   <os>SL6</os>
@@ -28,13 +29,13 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_7dd07f7_larana_57aedb1.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_6368b15_larana_57aedb1.tar</local>
   </larsoft>
 
   <!-- Project stages -->
 
   <stage name="eventbuilder">
-      <inputlist>/lariat/app/users/jhugon/genPionAbsAndChEx/tof_calib_runs_usoverds_raw.txt</inputlist>
+      <inputdef>jhugon_tof_calib_runs_usoverds</inputdef>
       <fcl>standard_eventbuilder.fcl</fcl>
       <outdir>&myoutdir;/&release;/eventbuilder/&name;</outdir>
       <workdir>&myworkdir;/&release;/eventbuilder/&name;</workdir>
