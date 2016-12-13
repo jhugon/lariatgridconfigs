@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+
+<!-- Production Project -->
+
+<!DOCTYPE project [
+<!ENTITY release "v06_15_00">
+<!ENTITY file_type "data">
+<!ENTITY run_type "physics">
+<!ENTITY name "lariat_data_tof_calib_runs_usoverds_v01">
+<!ENTITY tag "TestOfBatchJobs">
+<!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
+<!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
+<!ENTITY njobs "3264">
+]>
+
+<project name="&name;">
+
+  <!-- Project size -->
+  <numevents>-1</numevents>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+
+  <!-- Larsoft information -->
+  <larsoft>
+      <tag>&release;</tag>
+      <qual>e10:prof</qual>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_7dd07f7_larana_57aedb1.tar</local>
+  </larsoft>
+
+  <!-- Project stages -->
+
+  <stage name="eventbuilder">
+      <inputlist>/lariat/app/users/jhugon/genPionAbsAndChEx/tof_calib_runs_usoverds_raw.txt</inputlist>
+      <fcl>standard_eventbuilder.fcl</fcl>
+      <outdir>&myoutdir;/&release;/eventbuilder/&name;</outdir>
+      <workdir>&myworkdir;/&release;/eventbuilder/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+  </stage>
+
+  <stage name="beamLineAna">
+      <fcl>beamLineAnaTree.fcl</fcl>
+      <outdir>&myoutdir;/&release;/beamLineAna/&name;</outdir>
+      <workdir>&myworkdir;/&release;/beamLineAna/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>
