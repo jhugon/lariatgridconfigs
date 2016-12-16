@@ -6,18 +6,18 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_tof_calib_runs_dsoverus_v01">
+<!ENTITY name "lariat_data_tof_calib_runs_dsoverus_v02">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "15">
+<!ENTITY njobs "661">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
   <numevents>-1</numevents>
-  <maxfilesperjob>75</maxfilesperjob>
+  <maxfilesperjob>1</maxfilesperjob>
 
   <!-- Operating System -->
   <os>SL6</os>
