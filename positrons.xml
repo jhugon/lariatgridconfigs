@@ -7,17 +7,17 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_ep_v1">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_ep_v2">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "30">
+<!ENTITY njobs "300">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>10000</numevents>
+  <numevents>100000</numevents>
   <!-- Try to do 350 events/job  ~5hr for reco -->
 
   <!-- Operating System -->
