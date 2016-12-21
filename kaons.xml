@@ -30,7 +30,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_7dd07f7_larana_57aedb1.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_04f741c_larana_57aedb1.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -55,6 +55,15 @@
       <fcl>AnaTree.fcl</fcl>
       <outdir>&myoutdir;/&release;/ana/&name;</outdir>
       <workdir>&myworkdir;/&release;/ana/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+  </stage>
+
+  <stage name="piAbsSelector">
+      <fcl>piAbsSelector.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/piAbsSelector/&name;</outdir>
+      <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>
