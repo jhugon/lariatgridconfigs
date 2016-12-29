@@ -33,7 +33,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_04f741c_larana_57aedb1.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_179456e_larana_57aedb1.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -63,6 +63,15 @@
       <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/piAbsSelector/&name;</outdir>
       <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+  </stage>
+
+  <stage name="piAbsSelector2">
+      <fcl>piAbsSelector.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/piAbsSelector2/&name;</outdir>
+      <workdir>&myworkdir;/&release;/piAbsSelector2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
   </stage>

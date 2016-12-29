@@ -68,6 +68,15 @@
       <datatier>reconstructed-2d</datatier>
   </stage>
 
+  <stage name="piAbsSelector2">
+      <fcl>piAbsSelector.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/piAbsSelector2/&name;</outdir>
+      <workdir>&myworkdir;/&release;/piAbsSelector2/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+  </stage>
+
   <!-- file type -->
   <filetype>&file_type;</filetype>
 
