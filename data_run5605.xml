@@ -6,7 +6,7 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_jhugon_run5605_v02">
+<!ENTITY name "lariat_data_jhugon_run5605_v03">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
@@ -29,7 +29,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_7dd07f7_larana_57aedb1.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c4e07c3_larana_57aedb1.tar</local>
   </larsoft>
 
   <!-- Project stages -->
