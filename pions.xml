@@ -7,17 +7,17 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_v3">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_v4">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "65">
+<!ENTITY njobs "650">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>50000</numevents>
+  <numevents>500000</numevents>
   <!-- Try to do 800 events/job  ~5hr for reco -->
 
   <!-- Operating System -->
@@ -30,7 +30,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_b66f1b9_larana_57aedb1.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_23649ff_larana_57aedb1.tar</local>
   </larsoft>
 
   <!-- Project stages -->
