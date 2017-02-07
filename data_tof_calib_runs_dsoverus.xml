@@ -29,7 +29,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_6368b15_larana_57aedb1.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_0188afe_larana_57aedb1.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -42,10 +42,10 @@
       <numjobs>&njobs;</numjobs>
   </stage>
 
-  <stage name="beamLineAna">
-      <fcl>beamLineAnaTree.fcl</fcl>
-      <outdir>&myoutdir;/&release;/beamLineAna/&name;</outdir>
-      <workdir>&myworkdir;/&release;/beamLineAna/&name;</workdir>
+  <stage name="tofrecoonly">
+      <fcl>TOFRecoOnly.fcl</fcl>
+      <outdir>&myoutdir;/&release;/tofrecoonly/&name;</outdir>
+      <workdir>&myworkdir;/&release;/tofrecoonly/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
   </stage>

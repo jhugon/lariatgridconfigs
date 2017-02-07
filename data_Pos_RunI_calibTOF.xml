@@ -33,14 +33,14 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_dc93cd5_larana_57aedb1.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_0188afe_larana_57aedb1.tar</local>
   </larsoft>
 
   <!-- Project stages -->
 
-  <stage name="tofreco">
+  <stage name="wctofreco">
       <inputdef>Lovely1_Pos_RunI_elenag_v02</inputdef>
-      <fcl>TOFRecoOnly.fcl</fcl>
+      <fcl>WCTOFRecoOnly.fcl</fcl>
       <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
