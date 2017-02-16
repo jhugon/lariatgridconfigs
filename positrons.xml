@@ -7,17 +7,19 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_ep_v4">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_ep_v5">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "300">
+<!-- Make sure number of jobs == number of files in input list -->
+<!ENTITY njobs "120">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>100000</numevents>
+  <!-- Make sure number of events / number of jobs <= number of events in each file -->
+  <numevents>36000</numevents>
   <!-- Try to do 350 events/job  ~5hr for reco -->
 
   <!-- Operating System -->
@@ -30,13 +32,15 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_74fbf98_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_2bf7ec4_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->
 
   <stage name="gensimdigi">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_ep.fcl</fcl>
+      <inputmode>textfile</inputmode>
+      <inputlist>/lariat/app/users/jhugon/genPionAbsAndChEx/text_ep_35k_v1.txt</inputlist>
+      <fcl>prodtext_lariat_PiAbsAndChEx.fcl</fcl>
       <outdir>&myoutdir;/&release;/gensimdigi/&name;</outdir>
       <workdir>&myworkdir;/&release;/gensimdigi/&name;</workdir>
       <numjobs>&njobs;</numjobs>
