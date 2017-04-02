@@ -38,6 +38,15 @@
 
   <!-- Project stages -->
 
+  <stage name="tofrecoonly">
+      <fcl>TOFRecoOnly.fcl</fcl>
+      <outdir>&myoutdir;/&release;/tofrecoonly/&name;</outdir>
+      <workdir>&myworkdir;/&release;/tofrecoonly/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+  </stage>
+
+
   <stage name="wctofreco">
       <inputdef>Lovely1_Pos_RunI_elenag_v02</inputdef>
       <fcl>WCTOFRecoOnly.fcl</fcl>

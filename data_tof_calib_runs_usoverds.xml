@@ -6,7 +6,7 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_tof_calib_runs_usoverds_v03">
+<!ENTITY name "lariat_data_tof_calib_runs_usoverds_v04">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
@@ -29,7 +29,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_13b26af_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_78ff494_larana_434c9e2_forTof.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -42,10 +42,20 @@
       <numjobs>&njobs;</numjobs>
   </stage>
 
-  <stage name="tofrecoonly">
-      <fcl>TOFRecoOnly.fcl</fcl>
-      <outdir>&myoutdir;/&release;/tofrecoonly/&name;</outdir>
-      <workdir>&myworkdir;/&release;/tofrecoonly/&name;</workdir>
+  <stage name="tofrecoonly_runI">
+      <inputlist>&myoutdir;/&release;/eventbuilder/&name;/files.list</inputlist>
+      <fcl>TOFRecoOnly_RunI.fcl</fcl>
+      <outdir>&myoutdir;/&release;/tofrecoonly_runI/&name;</outdir>
+      <workdir>&myworkdir;/&release;/tofrecoonly_runI/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+  </stage>
+
+  <stage name="tofrecoonly_runII">
+      <inputlist>&myoutdir;/&release;/eventbuilder/&name;/files.list</inputlist>
+      <fcl>TOFRecoOnly_RunII.fcl</fcl>
+      <outdir>&myoutdir;/&release;/tofrecoonly_runII/&name;</outdir>
+      <workdir>&myworkdir;/&release;/tofrecoonly_runII/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
   </stage>

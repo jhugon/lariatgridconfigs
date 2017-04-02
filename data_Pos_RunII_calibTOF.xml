@@ -10,11 +10,11 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_Lovely1_Pos_RunII_elanag_v02_calibTOF_v01">
+<!ENTITY name "lariat_data_Lovely1_Pos_RunII_elanag_v02_calibTOF_v02">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "2300">
+<!ENTITY njobs "2297">
 ]>
 
 <project name="&name;">
@@ -33,19 +33,29 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_13b26af_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_78ff494_larana_434c9e2_forTof.tar</local>
   </larsoft>
 
   <!-- Project stages -->
 
-  <stage name="wctofreco">
-      <inputdef>Lovely1_Pos_RunII_elenag_v02</inputdef>
-      <fcl>WCTOFRecoOnly.fcl</fcl>
-      <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
-      <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
+  <stage name="tofrecoonly_runI">
+      <inputlist>/pnfs/lariat/scratch/users/jhugon/v06_15_00/reco/lariat_data_Lovely1_Pos_RunII_elanag_v02_v05/files.list</inputlist>
+      <fcl>TOFRecoOnly_RunI.fcl</fcl>
+      <outdir>&myoutdir;/&release;/tofrecoonly_runI/&name;</outdir>
+      <workdir>&myworkdir;/&release;/tofrecoonly_runI/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
   </stage>
+
+  <stage name="tofrecoonly_runII">
+      <inputlist>/pnfs/lariat/scratch/users/jhugon/v06_15_00/reco/lariat_data_Lovely1_Pos_RunII_elanag_v02_v05/files.list</inputlist>
+      <fcl>TOFRecoOnly_RunII.fcl</fcl>
+      <outdir>&myoutdir;/&release;/tofrecoonly_runII/&name;</outdir>
+      <workdir>&myworkdir;/&release;/tofrecoonly_runII/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+  </stage>
+
 
   <!-- file type -->
   <filetype>&file_type;</filetype>
