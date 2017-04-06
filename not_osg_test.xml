@@ -6,31 +6,31 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_osg_test_v5">
+<!ENTITY name "lariat_not_osg_test_v2">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "3">
+<!ENTITY njobs "10">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>3000</numevents>
+  <numevents>18000</numevents>
   <!-- Each job: 1800 evts : RecoMC: 2 hours and 13 GB outfile-->
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
-  <resource>OFFSITE</resource>
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
   <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c397351_larana_434c9e2_osgtest.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_f2e51ec_larana_434c9e2_osgtest.tar</local>
   </larsoft>
 
   <!-- Project stages -->

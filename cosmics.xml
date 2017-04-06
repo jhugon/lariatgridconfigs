@@ -6,24 +6,24 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_osg_test_v5">
+<!ENTITY name "lariat_PiAbsAndChEx_cosmics_v1">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "3">
+<!ENTITY njobs "10">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>3000</numevents>
-  <!-- Each job: 1800 evts : RecoMC: 2 hours and 13 GB outfile-->
+  <numevents>18000</numevents>
+  <!-- Try to do 1800 events/job  ~2hr for reco -->
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
-  <resource>OFFSITE</resource>
+  <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
   <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Larsoft information -->
@@ -36,12 +36,12 @@
   <!-- Project stages -->
 
   <stage name="gensimdigi">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_pip.fcl</fcl>
+      <fcl>prodsingle_lariat_PiAbsAndChEx_cosmics.fcl</fcl>
       <outdir>&myoutdir;/&release;/gensimdigi/&name;</outdir>
       <workdir>&myworkdir;/&release;/gensimdigi/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>simulated</datatier>
-      <jobsub>--expected-lifetime=1h</jobsub>
+      <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <stage name="reco">
@@ -49,17 +49,8 @@
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
       <numjobs>&njobs;</numjobs>
-      <datatier>simulated</datatier>
+      <datatier>reconstructed-2d</datatier>
       <jobsub>--expected-lifetime=3h</jobsub>
-  </stage>
-
-  <stage name="piAbsSelector">
-      <fcl>piAbsSelector.fcl</fcl>
-      <outdir>&myoutdir;/&release;/piAbsSelector/&name;</outdir>
-      <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>simulated</datatier>
-      <jobsub>--expected-lifetime=1h</jobsub>
   </stage>
 
   <!-- file type -->
