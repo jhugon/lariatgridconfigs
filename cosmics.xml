@@ -30,7 +30,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c397351_larana_434c9e2_osgtest.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_29b839b_larana_434c9e2_osgtest.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -51,6 +51,15 @@
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
       <jobsub>--expected-lifetime=3h</jobsub>
+  </stage>
+
+  <stage name="cosmicAna">
+      <fcl>cosmicAnalyzer.fcl</fcl>
+      <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
+      <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>analyzed</datatier>
+      <jobsub>--expected-lifetime=1h</jobsub>
   </stage>
 
   <!-- file type -->

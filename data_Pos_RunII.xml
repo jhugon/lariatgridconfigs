@@ -33,7 +33,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_26b0b2e_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c397351_larana_434c9e2_osgtest.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -56,6 +56,7 @@
       <workdir>&myworkdir;/&release;/ana/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
+      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
   <stage name="piAbsSelector">
@@ -65,6 +66,7 @@
       <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
   <stage name="piAbsSelector2">
@@ -74,6 +76,7 @@
       <workdir>&myworkdir;/&release;/piAbsSelector2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
   <stage name="wctofreco">
@@ -93,6 +96,18 @@
       <workdir>&myworkdir;/&release;/beamLineAna/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
+      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  </stage>
+
+  <stage name="cosmicAna">
+      <fcl>cosmicAnalyzer.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
+      <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>analyzed</datatier>
+      <jobsub>--expected-lifetime=3h</jobsub>
+      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
   <!-- file type -->
