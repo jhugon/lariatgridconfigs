@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v1 first try with v06_15_00, just 1000, 10 jobs -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_15_00">
@@ -11,26 +10,27 @@
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "40">
+<!ENTITY njobs "50">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>50000</numevents>
-  <!-- Try to do 1300 events/job  ~5hr for reco -->
+  <numevents>36000</numevents>
+  <!-- Try to do 720 events/job  ~2hr for reco -->
+  <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
-  <resource>DEDICATED,OPPORTUNISTIC</resource>
+  <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
 
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_26b0b2e_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_29b839b_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -41,6 +41,7 @@
       <workdir>&myworkdir;/&release;/gensimdigi/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>simulated</datatier>
+      <jobsub>--expected-lifetime=1h</jobsub>
   </stage>
 
   <stage name="reco">
@@ -49,6 +50,7 @@
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <stage name="ana">
@@ -57,6 +59,7 @@
       <workdir>&myworkdir;/&release;/ana/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=1h</jobsub>
   </stage>
 
   <stage name="piAbsSelector">
@@ -66,6 +69,7 @@
       <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=1h</jobsub>
   </stage>
 
   <stage name="piAbsSelector2">
@@ -75,6 +79,7 @@
       <workdir>&myworkdir;/&release;/piAbsSelector2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=1h</jobsub>
   </stage>
 
   <!-- file type -->
