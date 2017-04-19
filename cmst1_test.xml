@@ -6,7 +6,7 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_not_osg_test_v4">
+<!ENTITY name "cmst1_test_v1">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
@@ -17,14 +17,15 @@
 
   <!-- Project size -->
   <numevents>20</numevents>
-  <!-- Each job: 1800 evts : RecoMC: 2 hours and 13 GB outfile-->
+  <!-- Try to do 720 events/job  ~2hr for reco -->
+  <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
-  <resource>DEDICATED,OPPORTUNISTIC</resource>
-  <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  <resource>OFFSITE</resource>
+  <site>FNAL</site>
 
   <!-- Larsoft information -->
   <larsoft>
@@ -35,20 +36,10 @@
 
   <!-- Project stages -->
 
-  <stage name="gensimdigireco">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_pip.fcl</fcl>
-      <fcl>RecoMC.fcl</fcl>
-      <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
-      <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>simulated</datatier>
-      <jobsub>--expected-lifetime=1h</jobsub>
-  </stage>
-
-  <stage name="piAbsSelector">
-      <fcl>piAbsSelector.fcl</fcl>
-      <outdir>&myoutdir;/&release;/piAbsSelector/&name;</outdir>
-      <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
+  <stage name="gensimdigi">
+      <fcl>prodsingle_lariat_PiAbsAndChEx_p.fcl</fcl>
+      <outdir>&myoutdir;/&release;/gensimdigi/&name;</outdir>
+      <workdir>&myworkdir;/&release;/gensimdigi/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>simulated</datatier>
       <jobsub>--expected-lifetime=1h</jobsub>

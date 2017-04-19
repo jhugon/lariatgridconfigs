@@ -30,7 +30,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_8b70ddf_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_0927019_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -48,6 +48,15 @@
       <fcl>RecoMC.fcl</fcl>
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=3h</jobsub>
+  </stage>
+
+  <stage name="calo">
+      <fcl>testCalo.fcl</fcl>
+      <outdir>&myoutdir;/&release;/calo/&name;</outdir>
+      <workdir>&myworkdir;/&release;/calo/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
       <jobsub>--expected-lifetime=3h</jobsub>

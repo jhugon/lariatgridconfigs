@@ -39,7 +39,7 @@
   <!-- Project stages -->
 
   <stage name="wctofreco">
-      <inputdef>Lovely1_Neg_RunII_elenag</inputdef>
+      <inputdef>Lovely1_Neg_RunII_elenag_v03</inputdef>
       <fcl>WCTOFRecoOnly.fcl</fcl>
       <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>

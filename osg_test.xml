@@ -6,18 +6,18 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_osg_test_v5">
+<!ENTITY name "lariat_osg_test_v10">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "3">
+<!ENTITY njobs "10">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>3000</numevents>
-  <!-- Each job: 1800 evts : RecoMC: 2 hours and 13 GB outfile-->
+  <numevents>100</numevents>
+  <!-- Each job: 300 evts : RecoMC: 2 hours and 13 GB outfile-->
 
   <!-- Operating System -->
   <os>SL6</os>
@@ -30,27 +30,19 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c397351_larana_434c9e2_osgtest.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_68c28fb_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->
 
-  <stage name="gensimdigi">
+  <stage name="gensimdigireco">
       <fcl>prodsingle_lariat_PiAbsAndChEx_pip.fcl</fcl>
-      <outdir>&myoutdir;/&release;/gensimdigi/&name;</outdir>
-      <workdir>&myworkdir;/&release;/gensimdigi/&name;</workdir>
+      <fcl>RecoMC.fcl</fcl>
+      <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>simulated</datatier>
       <jobsub>--expected-lifetime=1h</jobsub>
-  </stage>
-
-  <stage name="reco">
-      <fcl>RecoMC.fcl</fcl>
-      <outdir>&myoutdir;/&release;/reco/&name;</outdir>
-      <workdir>&myworkdir;/&release;/reco/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>simulated</datatier>
-      <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <stage name="piAbsSelector">
