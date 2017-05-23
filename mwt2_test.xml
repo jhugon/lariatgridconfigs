@@ -6,17 +6,17 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "mwt2_test_v5">
+<!ENTITY name "mwt2_test_v6">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "5">
+<!ENTITY njobs "10">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>100</numevents>
+  <numevents>200</numevents>
   <!-- Try to do 720 events/job  ~2hr for reco -->
   <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
 

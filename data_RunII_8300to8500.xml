@@ -29,7 +29,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_68c28fb_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_9fefcf8_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -104,6 +104,17 @@
       <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
       <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>analyzed</datatier>
+      <jobsub>--expected-lifetime=3h</jobsub>
+      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  </stage>
+
+  <stage name="cosmicAna2">
+      <fcl>cosmicAnalyzer.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/cosmicAna2/&name;</outdir>
+      <workdir>&myworkdir;/&release;/cosmicAna2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
       <jobsub>--expected-lifetime=3h</jobsub>

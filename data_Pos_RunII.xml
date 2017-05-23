@@ -14,26 +14,26 @@
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "1910">
+<!ENTITY njobs "3820">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
   <numevents>-1</numevents>
-  <maxfilesperjob>30</maxfilesperjob> <!-- 60 for run I, 30 for run II-->
+  <maxfilesperjob>15</maxfilesperjob> <!-- 60 for run I, 30 for run II-->
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
-  <resource>DEDICATED,OPPORTUNISTIC</resource>
+  <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
 
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c397351_larana_434c9e2_osgtest.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_9fefcf8_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -45,8 +45,8 @@
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
-      <memory>4000</memory>
-      <jobsub>--expected-lifetime=long</jobsub>
+      <memory>2000</memory>
+      <jobsub>--expected-lifetime=5h</jobsub>
   </stage>
 
   <stage name="ana">
