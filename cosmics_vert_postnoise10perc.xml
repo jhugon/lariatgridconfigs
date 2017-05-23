@@ -10,7 +10,7 @@
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "10">
+<!ENTITY njobs "15">
 ]>
 
 <project name="&name;">
