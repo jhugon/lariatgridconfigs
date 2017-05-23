@@ -24,13 +24,13 @@
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
-  <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  <memory>500</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_9dbb125_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_411343f_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->

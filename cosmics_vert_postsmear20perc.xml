@@ -6,7 +6,7 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_cosmics_noise1ke_v1">
+<!ENTITY name "lariat_PiAbsAndChEx_cosmics_vert_postsmear20perc_v1">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
@@ -16,15 +16,15 @@
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>18000</numevents>
-  <!-- Try to do 1800 events/job  ~2hr for reco -->
+  <numevents>10000</numevents>
+  <!-- gensimdigireco ~8 s/event Try to do 1000 events/job 2.22 hours-->
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
-  <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  <memory>500</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Larsoft information -->
   <larsoft>
@@ -35,27 +35,19 @@
 
   <!-- Project stages -->
 
-  <stage name="gensimdigi">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_cosmics_noise1ke.fcl</fcl>
-      <outdir>&myoutdir;/&release;/gensimdigi/&name;</outdir>
-      <workdir>&myworkdir;/&release;/gensimdigi/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>simulated</datatier>
-      <jobsub>--expected-lifetime=3h</jobsub>
-  </stage>
-
-  <stage name="reco">
+  <stage name="gensimdigireco">
+      <fcl>prodsingle_lariat_PiAbsAndChEx_cosmics_vertical_postsmear20perc.fcl</fcl>
       <fcl>RecoMC.fcl</fcl>
-      <outdir>&myoutdir;/&release;/reco/&name;</outdir>
-      <workdir>&myworkdir;/&release;/reco/&name;</workdir>
+      <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
       <numjobs>&njobs;</numjobs>
-      <datatier>reconstructed-2d</datatier>
+      <datatier>gensimdigireco</datatier>
       <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <stage name="cosmicAna">
       <fcl>cosmicAnalyzer.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
       <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
       <numjobs>&njobs;</numjobs>
@@ -65,7 +57,7 @@
 
   <stage name="cosmicAna2">
       <fcl>cosmicAnalyzer.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/cosmicAna2/&name;</outdir>
       <workdir>&myworkdir;/&release;/cosmicAna2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
