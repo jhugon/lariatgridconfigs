@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+
+<!-- Production Project -->
+
+<!DOCTYPE project [
+<!ENTITY release "v06_15_00">
+<!ENTITY file_type "mc">
+<!ENTITY run_type "physics">
+<!ENTITY name "lariat_PiAbsAndChEx_cosmics_vert_presmear35perc_v1">
+<!ENTITY tag "TestOfBatchJobs">
+<!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
+<!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
+<!ENTITY njobs "10">
+]>
+
+<project name="&name;">
+
+  <!-- Project size -->
+  <numevents>10000</numevents>
+  <!-- gensimdigireco ~8 s/event Try to do 1000 events/job 2.22 hours-->
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+  <memory>1000</memory> <!-- RecoMC seems to max out around 1177 MB -->
+
+  <!-- Larsoft information -->
+  <larsoft>
+      <tag>&release;</tag>
+      <qual>e10:prof</qual>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_74f6dff_larana_434c9e2.tar</local>
+  </larsoft>
+
+  <!-- Project stages -->
+
+  <stage name="gensimdigireco">
+      <fcl>prodsingle_lariat_PiAbsAndChEx_cosmics_vertical_presmear35perc.fcl</fcl>
+      <fcl>RecoMC.fcl</fcl>
+      <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>gensimdigireco</datatier>
+      <jobsub>--expected-lifetime=3h</jobsub>
+  </stage>
+
+  <stage name="cosmicAna">
+      <fcl>cosmicAnalyzer.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
+      <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>analyzed</datatier>
+      <jobsub>--expected-lifetime=1h</jobsub>
+      <resource>DEDICATED,OPPORTUNISTIC</resource>
+  </stage>
+
+  <stage name="cosmicAna2">
+      <fcl>cosmicAnalyzer.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/cosmicAna2/&name;</outdir>
+      <workdir>&myworkdir;/&release;/cosmicAna2/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>analyzed</datatier>
+      <jobsub>--expected-lifetime=1h</jobsub>
+      <resource>DEDICATED,OPPORTUNISTIC</resource>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>
