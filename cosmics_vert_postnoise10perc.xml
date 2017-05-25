@@ -24,7 +24,7 @@
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
-  <memory>500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  <memory>1200</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Larsoft information -->
   <larsoft>
@@ -53,6 +53,7 @@
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
       <jobsub>--expected-lifetime=1h</jobsub>
+      <resource>DEDICATED,OPPORTUNISTIC</resource>
   </stage>
 
   <stage name="cosmicAna2">
@@ -63,6 +64,7 @@
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
       <jobsub>--expected-lifetime=1h</jobsub>
+      <resource>DEDICATED,OPPORTUNISTIC</resource>
   </stage>
 
   <!-- file type -->

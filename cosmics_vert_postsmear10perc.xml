@@ -6,7 +6,7 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_cosmics_vert_postsmear20perc_v1">
+<!ENTITY name "lariat_PiAbsAndChEx_cosmics_vert_postsmear10perc_v1">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
@@ -24,7 +24,7 @@
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
-  <memory>500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  <memory>1000</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Larsoft information -->
   <larsoft>
@@ -52,6 +52,7 @@
       <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
+      <resource>DEDICATED,OPPORTUNISTIC</resource>
       <jobsub>--expected-lifetime=1h</jobsub>
   </stage>
 
@@ -62,6 +63,7 @@
       <workdir>&myworkdir;/&release;/cosmicAna2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
+      <resource>DEDICATED,OPPORTUNISTIC</resource>
       <jobsub>--expected-lifetime=1h</jobsub>
   </stage>
 

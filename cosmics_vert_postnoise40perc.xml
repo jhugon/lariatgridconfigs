@@ -24,7 +24,7 @@
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
-  <memory>500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  <memory>1200</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Larsoft information -->
   <larsoft>
