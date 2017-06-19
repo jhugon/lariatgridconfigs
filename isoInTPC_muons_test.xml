@@ -6,7 +6,7 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_cosmics_vert_v3">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_mup_test_v1">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
@@ -17,14 +17,14 @@
 
   <!-- Project size -->
   <numevents>20000</numevents>
-  <!-- gensimdigireco ~8 s/event Try to do 1000 events/job 2.22 hours-->
+  <!-- Try to do 1000 events/job  ~2hr for reco -->
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
-  <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  <memory>800</memory>
 
   <!-- Larsoft information -->
   <larsoft>
@@ -36,12 +36,12 @@
   <!-- Project stages -->
 
   <stage name="gensimdigireco">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_cosmics_vertical.fcl</fcl>
+      <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_mup_test.fcl</fcl>
       <fcl>RecoMC.fcl</fcl>
       <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
       <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
       <numjobs>&njobs;</numjobs>
-      <datatier>gensimdigireco</datatier>
+      <datatier>reco</datatier>
       <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
@@ -50,17 +50,6 @@
       <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
       <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>analyzed</datatier>
-      <jobsub>--expected-lifetime=1h</jobsub>
-      <resource>DEDICATED,OPPORTUNISTIC</resource>
-  </stage>
-
-  <stage name="cosmicAna2">
-      <fcl>cosmicAnalyzer.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
-      <outdir>&myoutdir;/&release;/cosmicAna2/&name;</outdir>
-      <workdir>&myworkdir;/&release;/cosmicAna2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
       <jobsub>--expected-lifetime=1h</jobsub>
