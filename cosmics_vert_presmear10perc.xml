@@ -6,7 +6,7 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_cosmics_vert_presmear30perc_v4">
+<!ENTITY name "lariat_PiAbsAndChEx_cosmics_vert_presmear10perc_v4">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
@@ -30,13 +30,13 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_efd8539_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_2f183bd_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->
 
   <stage name="gensimdigireco">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_cosmics_vertical_presmear30perc.fcl</fcl>
+      <fcl>prodsingle_lariat_PiAbsAndChEx_cosmics_vertical_presmear10perc.fcl</fcl>
       <fcl>RecoMC.fcl</fcl>
       <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
       <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>

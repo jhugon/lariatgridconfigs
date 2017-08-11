@@ -10,24 +10,23 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_Lovely1_Pos_RunII_jhugon_v01_v01">
+<!ENTITY name "lariat_data_cosmics_Pos_RunII_v01">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "3820">
+<!ENTITY njobs "895">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
   <numevents>-1</numevents>
-  <maxfilesperjob>15</maxfilesperjob> <!-- 60 for run I, 30 for run II-->
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
-  <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
 
   <!-- Larsoft information -->
   <larsoft>
@@ -39,14 +38,27 @@
   <!-- Project stages -->
 
   <stage name="reco">
-      <inputdef>Lovely1_Pos_RunII_jhugon_v01</inputdef>
+      <inputlist>/pnfs/lariat/scratch/users/jhugon/central/RunIIPosCosmics/cosmicsFilter/v06_34_01/files.list</inputlist>
       <fcl>Reco_run2.fcl</fcl>
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
-      <memory>2000</memory>
-      <jobsub>--expected-lifetime=5h</jobsub>
+      <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+      <memory>1000</memory>
+      <jobsub>--expected-lifetime=24h</jobsub>
+      <!-- do 8h then 24h makup-->
+  </stage>
+
+  <stage name="redoCalo">
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <fcl>redoCaloRunII.fcl</fcl>
+      <outdir>&myoutdir;/&release;/redoCalo/&name;</outdir>
+      <workdir>&myworkdir;/&release;/redoCalo/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+      <jobsub>--expected-lifetime=3h</jobsub>
+      <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
   <stage name="ana">
@@ -56,58 +68,30 @@
       <workdir>&myworkdir;/&release;/ana/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
-      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+      <jobsub>--expected-lifetime=3h</jobsub>
+      <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
   <stage name="piAbsSelector">
       <fcl>piAbsSelector.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/redoCalo/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/piAbsSelector/&name;</outdir>
       <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
-      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
-  </stage>
-
-  <stage name="piAbsSelector2">
-      <fcl>piAbsSelector.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
-      <outdir>&myoutdir;/&release;/piAbsSelector2/&name;</outdir>
-      <workdir>&myworkdir;/&release;/piAbsSelector2/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>reconstructed-2d</datatier>
-      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
-  </stage>
-
-  <stage name="wctofreco">
-      <inputdef>Lovely1_Pos_RunII_elenag_v02</inputdef>
-      <fcl>WCTOFRecoOnly_run2.fcl</fcl>
-      <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
-      <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
-      <datatier>reconstructed-2d</datatier>
-      <numjobs>&njobs;</numjobs>
-      <jobsub>--expected-lifetime=long</jobsub>
-  </stage>
-
-  <stage name="beamLineAna">
-      <inputlist>&myoutdir;/&release;/wctofreco/&name;/files.list</inputlist>
-      <fcl>beamLineAnaTree.fcl</fcl>
-      <outdir>&myoutdir;/&release;/beamLineAna/&name;</outdir>
-      <workdir>&myworkdir;/&release;/beamLineAna/&name;</workdir>
-      <datatier>reconstructed-2d</datatier>
-      <numjobs>&njobs;</numjobs>
-      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+      <jobsub>--expected-lifetime=3h</jobsub>
+      <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
   <stage name="cosmicAna">
       <fcl>cosmicAnalyzer.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/redoCalo/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
       <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
       <jobsub>--expected-lifetime=3h</jobsub>
-      <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+      <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
   <!-- file type -->
