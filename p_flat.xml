@@ -6,7 +6,7 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_p_v6">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_p_v7">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
@@ -16,45 +16,40 @@
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>36000</numevents>
-  <!-- Try to do 720 events/job  ~2hr for reco -->
-  <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  <numevents>25000</numevents>
+  <!-- Try to do 500 events/job  ~2hr for reco -->
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
-  <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+  <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_8b70ddf_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_efd8539_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->
 
-  <stage name="gensimdigi">
+  <stage name="gensimdigireco">
       <fcl>prodsingle_lariat_PiAbsAndChEx_p.fcl</fcl>
-      <outdir>&myoutdir;/&release;/gensimdigi/&name;</outdir>
-      <workdir>&myworkdir;/&release;/gensimdigi/&name;</workdir>
+      <fcl>RecoMC.fcl</fcl>
+      <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>simulated</datatier>
-      <jobsub>--expected-lifetime=1h</jobsub>
-  </stage>
-
-  <stage name="reco">
-      <fcl>RecoMC.fcl</fcl>
-      <outdir>&myoutdir;/&release;/reco/&name;</outdir>
-      <workdir>&myworkdir;/&release;/reco/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>reconstructed-2d</datatier>
+      <datatier>gensimdigireco</datatier>
+      <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
       <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <stage name="ana">
       <fcl>AnaTree.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/ana/&name;</outdir>
       <workdir>&myworkdir;/&release;/ana/&name;</workdir>
       <numjobs>&njobs;</numjobs>
@@ -64,7 +59,7 @@
 
   <stage name="piAbsSelector">
       <fcl>piAbsSelector.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/piAbsSelector/&name;</outdir>
       <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
       <numjobs>&njobs;</numjobs>
@@ -74,7 +69,7 @@
 
   <stage name="piAbsSelector2">
       <fcl>piAbsSelector.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/piAbsSelector2/&name;</outdir>
       <workdir>&myworkdir;/&release;/piAbsSelector2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
