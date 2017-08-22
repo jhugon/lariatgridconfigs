@@ -4,7 +4,7 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_Lovely1_Pos_RunII_jhugon_current100_secondary64_gt9785_v1_v1">
+<!ENTITY name "lariat_data_Lovely1_Pos_RunII_jhugon_current100_secondary64_gt9785_v1_v2">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
@@ -29,7 +29,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ffe78ca4_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_dee26da5_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -80,7 +80,6 @@
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
-      <jobsub>--expected-lifetime=long</jobsub>
   </stage>
 
   <stage name="beamLineAna">
