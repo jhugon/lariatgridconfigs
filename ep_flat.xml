@@ -18,7 +18,7 @@
 
   <!-- Project size -->
   <numevents>8000</numevents>
-  <!-- Try to do 80 ? events/job  ~2hr for reco -->
+  <!-- Try to do 120 events/job  ~2hr for reco -->
 
   <!-- Operating System -->
   <os>SL6</os>
@@ -31,7 +31,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_efd8539_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ffe78ca4_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->

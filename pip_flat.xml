@@ -55,7 +55,7 @@
       <workdir>&myworkdir;/&release;/ana/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
-      <jobsub>--expected-lifetime=30m</jobsub>
+      <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <stage name="piAbsSelector">
@@ -65,7 +65,7 @@
       <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
-      <jobsub>--expected-lifetime=30m</jobsub>
+      <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <stage name="piAbsSelector2">
@@ -75,7 +75,7 @@
       <workdir>&myworkdir;/&release;/piAbsSelector2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
-      <jobsub>--expected-lifetime=30m</jobsub>
+      <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <!-- file type -->
