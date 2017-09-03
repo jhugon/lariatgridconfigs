@@ -7,18 +7,19 @@
 <!ENTITY release "v06_15_00">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v2">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v3">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "130">
+<!ENTITY njobs "10">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>585000</numevents>
-  <!-- Try to do 4500 events/job to keep from filling disk -->
+  <numevents>27000</numevents>
+  <!-- Try to do 2700 ? events/job 2h -->
+  <!-- Try to do <= 4500 events/job to keep from filling disk -->
 
   <!-- Operating System -->
   <os>SL6</os>
@@ -30,43 +31,40 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e10:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_9169de9_larana_713d7d3.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ffe78ca4_larana_434c9e2.tar</local>
   </larsoft>
 
   <!-- Project stages -->
 
-  <stage name="gensimdigi">
+  <stage name="gensimdigireco">
       <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_p.fcl</fcl>
-      <outdir>&myoutdir;/&release;/gensimdigi/&name;</outdir>
-      <workdir>&myworkdir;/&release;/gensimdigi/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>simulated</datatier>
-  </stage>
-
-  <stage name="reco">
       <fcl>RecoMC.fcl</fcl>
-      <outdir>&myoutdir;/&release;/reco/&name;</outdir>
-      <workdir>&myworkdir;/&release;/reco/&name;</workdir>
+      <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+      <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <stage name="likelihood">
       <fcl>likelihoodPIDMaker.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/likelihood/&name;</outdir>
       <workdir>&myworkdir;/&release;/likelihood/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <stage name="ana">
       <fcl>AnaTree.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/ana/&name;</outdir>
       <workdir>&myworkdir;/&release;/ana/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=3h</jobsub>
   </stage>
 
   <!-- file type -->
