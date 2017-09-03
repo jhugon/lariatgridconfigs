@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v1 first try with v06_15_00, just 1000, 10 jobs -->
+<!-- for v1 first try with v06_34_01, just 1000, 10 jobs -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_15_00">
+<!ENTITY release "v06_34_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
 <!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_to1500MeV_p_v2">
@@ -29,7 +29,7 @@
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
-      <qual>e10:prof</qual>
+      <qual>e14:prof</qual>
       <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_9169de9_larana_713d7d3.tar</local>
   </larsoft>
 

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 
 <!DOCTYPE project [
-<!ENTITY release "v06_15_00">
+<!ENTITY release "v06_34_01">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
 <!ENTITY name "lariat_data_Lovely1_Pos_RunII_jhugon_current0_secondary64_v1_v1">
@@ -28,7 +28,7 @@
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
-      <qual>e10:prof</qual>
+      <qual>e14:prof</qual>
       <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_a9d78e5f_larana_434c9e2.tar</local>
   </larsoft>
 

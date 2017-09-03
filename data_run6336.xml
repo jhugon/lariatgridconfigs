@@ -3,7 +3,7 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_15_00">
+<!ENTITY release "v06_34_01">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
 <!ENTITY name "lariat_data_jhugon_run6336_v03">
@@ -28,7 +28,7 @@
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
-      <qual>e10:prof</qual>
+      <qual>e14:prof</qual>
       <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_c4e07c3_larana_57aedb1.tar</local>
   </larsoft>
 

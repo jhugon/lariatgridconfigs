@@ -3,7 +3,7 @@
 <!-- Production Project -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_15_00">
+<!ENTITY release "v06_34_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
 <!ENTITY name "lariat_PiAbsAndChEx_cosmics_noise10ke_v1">
@@ -29,7 +29,7 @@
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
-      <qual>e10:prof</qual>
+      <qual>e14:prof</qual>
       <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_efd8539_larana_434c9e2.tar</local>
   </larsoft>
 

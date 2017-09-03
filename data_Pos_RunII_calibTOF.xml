@@ -7,7 +7,7 @@
      -->
 
 <!DOCTYPE project [
-<!ENTITY release "v06_15_00">
+<!ENTITY release "v06_34_01">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
 <!ENTITY name "lariat_data_Lovely1_Pos_RunII_elanag_v02_calibTOF_v02">
@@ -32,14 +32,14 @@
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
-      <qual>e10:prof</qual>
+      <qual>e14:prof</qual>
       <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_b868fc5_forTof.tar</local>
   </larsoft>
 
   <!-- Project stages -->
 
   <stage name="tofrecoonly_runI">
-      <inputlist>/pnfs/lariat/scratch/users/jhugon/v06_15_00/reco/lariat_data_Lovely1_Pos_RunII_elanag_v02_v05/files.list</inputlist>
+      <inputlist>/pnfs/lariat/scratch/users/jhugon/v06_34_01/reco/lariat_data_Lovely1_Pos_RunII_elanag_v02_v05/files.list</inputlist>
       <fcl>TOFRecoOnly_RunI.fcl</fcl>
       <outdir>&myoutdir;/&release;/tofrecoonly_runI/&name;</outdir>
       <workdir>&myworkdir;/&release;/tofrecoonly_runI/&name;</workdir>
@@ -48,7 +48,7 @@
   </stage>
 
   <stage name="tofrecoonly_runII">
-      <inputlist>/pnfs/lariat/scratch/users/jhugon/v06_15_00/reco/lariat_data_Lovely1_Pos_RunII_elanag_v02_v05/files.list</inputlist>
+      <inputlist>/pnfs/lariat/scratch/users/jhugon/v06_34_01/reco/lariat_data_Lovely1_Pos_RunII_elanag_v02_v05/files.list</inputlist>
       <fcl>TOFRecoOnly_RunII.fcl</fcl>
       <outdir>&myoutdir;/&release;/tofrecoonly_runII/&name;</outdir>
       <workdir>&myworkdir;/&release;/tofrecoonly_runII/&name;</workdir>
