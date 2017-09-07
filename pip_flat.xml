@@ -7,17 +7,17 @@
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_v2">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_v3">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "700">
+<!ENTITY njobs "133">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>217000</numevents>
+  <numevents>20000</numevents>
   <!-- Try to do 310 events/job  ~2hr for reco -->
 
   <!-- Operating System -->
@@ -37,7 +37,8 @@
   <!-- Project stages -->
 
   <stage name="gensimdigireco">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_pip.fcl</fcl>
+      <!-- <fcl>prodsingle_lariat_PiAbsAndChEx_pip.fcl</fcl> -->
+      <fcl>prodsingle_lariat_PiAbsAndChEx_pip_presmear20perc.fcl</fcl>
       <fcl>RecoMC.fcl</fcl>
       <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
       <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
