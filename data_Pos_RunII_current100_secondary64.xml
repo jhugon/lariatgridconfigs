@@ -29,7 +29,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ffe78ca4_larana_434c9e2.tar</local>
+      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_aaaad1c9_larana_ec891f7.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -74,7 +74,7 @@
   </stage>
 
   <stage name="wctofreco">
-      <inputdef>Lovely1_Pos_RunII_elenag_v02</inputdef>
+      <inputdef>Lovely1_Pos_RunII_jhugon_current100_secondary64_v1</inputdef>
       <fcl>WCTOFRecoOnly_run2.fcl</fcl>
       <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
