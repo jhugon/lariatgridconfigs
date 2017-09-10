@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v1 first try with v06_34_01, just 1000, 10 jobs -->
+<!-- for v3 just like v2 just more events total -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v2">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v3">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "10">
+<!ENTITY njobs "90">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>27000</numevents>
-  <!-- Try to do 2700 ? events/job 2h -->
+  <numevents>220000</numevents>
+  <!-- Try to do 2500 events/job 2.5h -->
   <!-- Try to do <= 4500 events/job to keep from filling disk -->
 
   <!-- Operating System -->
@@ -26,6 +26,7 @@
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC</resource>
+  <memory>1000</memory>
 
   <!-- Larsoft information -->
   <larsoft>
@@ -46,6 +47,7 @@
       <datatier>reconstructed-2d</datatier>
       <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
       <jobsub>--expected-lifetime=3h</jobsub>
+      <memory>500</memory>
   </stage>
 
   <stage name="likelihood">

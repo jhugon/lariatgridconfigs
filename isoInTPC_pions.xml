@@ -1,24 +1,24 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v1 first try with v06_34_01, just 1000, 10 jobs -->
+<!-- for v3 just like v2, just more events/job and events total-->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_pip_v2">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_pip_v3">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
-<!ENTITY njobs "25">
+<!ENTITY njobs "170">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>20000</numevents>
-  <!-- Try to do 800 ? events/job  ~2hr for reco -->
+  <numevents>220000</numevents>
+  <!-- Try to do 1300 events/job avg 2hr for reco -->
 
   <!-- Operating System -->
   <os>SL6</os>
@@ -46,6 +46,7 @@
       <datatier>reconstructed-2d</datatier>
       <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
       <jobsub>--expected-lifetime=3h</jobsub>
+      <memory>500</memory>
   </stage>
 
   <stage name="likelihood">
