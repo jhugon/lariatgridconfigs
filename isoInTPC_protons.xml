@@ -2,12 +2,13 @@
 
 <!-- Production Project -->
 <!-- for v3 just like v2 just more events total -->
+<!-- for v4 just like v3, just back to not-smeared -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v3">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v4">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
@@ -38,8 +39,8 @@
   <!-- Project stages -->
 
   <stage name="gensimdigireco">
-      <!-- <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_p.fcl</fcl> -->
-      <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_p_presmear20perc.fcl</fcl>
+      <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_p.fcl</fcl>
+      <!-- <fcl>prodsingle_lariat_PiAbsAndChEx_isoInTPC_p_presmear20perc.fcl</fcl> -->
       <fcl>RecoMC.fcl</fcl>
       <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
       <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
