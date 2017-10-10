@@ -7,7 +7,7 @@
 <!ENTITY name "lariat_data_Lovely1_Pos_RunII_jhugon_current60_secondary64_v1_v01">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
-<!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
+<!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
 <!ENTITY njobs "1800">
 ]>
 
@@ -23,13 +23,13 @@
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC</resource>
   <memory>600</memory>
-  <jobsub>--expected-lifetime=3h</jobsub>
+  <jobsub>--expected-lifetime=3h --mail_never</jobsub>
 
   <!-- Larsoft information -->
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ca3de002_larana_940acb4.tar</local>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_2e3650ee_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -42,7 +42,7 @@
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
       <memory>1000</memory>
-      <jobsub>--expected-lifetime=3h</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
       <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
   </stage>
 
@@ -80,7 +80,7 @@
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
-      <jobsub>--expected-lifetime=long</jobsub>
+      <jobsub>--expected-lifetime=long --mail_never</jobsub>
   </stage>
 
   <stage name="beamLineAna">
@@ -99,7 +99,7 @@
       <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
-      <jobsub>--expected-lifetime=3h</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
   </stage>
 
   <!-- file type -->

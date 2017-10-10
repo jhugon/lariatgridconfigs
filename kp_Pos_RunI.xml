@@ -10,7 +10,7 @@
 <!ENTITY name "lariat_PiAbsAndChEx_flat_kp_v5">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
-<!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
+<!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
 <!-- Make sure number of jobs == number of files in input list -->
 <!ENTITY njobs "52">
 ]>
@@ -32,7 +32,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ca3de002_larana_940acb4.tar</local>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_2e3650ee_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->

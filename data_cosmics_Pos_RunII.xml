@@ -13,7 +13,7 @@
 <!ENTITY name "lariat_data_cosmics_Pos_RunII_v01">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
-<!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
+<!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
 <!ENTITY njobs "895">
 ]>
 
@@ -32,7 +32,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ca3de002_larana_940acb4.tar</local>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_2e3650ee_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -46,7 +46,7 @@
       <numjobs>&njobs;</numjobs>
       <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
       <memory>1000</memory>
-      <jobsub>--expected-lifetime=24h</jobsub>
+      <jobsub>--expected-lifetime=24h --mail_never</jobsub>
       <!-- do 8h then 24h makup-->
   </stage>
 
@@ -57,7 +57,7 @@
       <workdir>&myworkdir;/&release;/redoCalo/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
-      <jobsub>--expected-lifetime=3h</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
       <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
@@ -68,7 +68,7 @@
       <workdir>&myworkdir;/&release;/ana/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
-      <jobsub>--expected-lifetime=3h</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
       <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
@@ -79,7 +79,7 @@
       <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
-      <jobsub>--expected-lifetime=3h</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
       <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 
@@ -90,7 +90,7 @@
       <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
-      <jobsub>--expected-lifetime=3h</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
       <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
   </stage>
 

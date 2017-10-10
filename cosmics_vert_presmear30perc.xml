@@ -9,7 +9,7 @@
 <!ENTITY name "lariat_PiAbsAndChEx_cosmics_vert_presmear30perc_v1">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
-<!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
+<!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
 <!ENTITY njobs "56">
 ]>
 
@@ -30,7 +30,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ca3de002_larana_940acb4.tar</local>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_2e3650ee_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -42,7 +42,7 @@
       <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>gensimdigireco</datatier>
-      <jobsub>--expected-lifetime=3h</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
   </stage>
 
   <stage name="cosmicAna">
@@ -52,7 +52,7 @@
       <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
-      <jobsub>--expected-lifetime=3h</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
       <resource>DEDICATED,OPPORTUNISTIC</resource>
   </stage>
 
@@ -63,7 +63,7 @@
       <workdir>&myworkdir;/&release;/cosmicAna2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
-      <jobsub>--expected-lifetime=3h</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
       <resource>DEDICATED,OPPORTUNISTIC</resource>
   </stage>
 

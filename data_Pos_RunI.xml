@@ -13,7 +13,7 @@
 <!ENTITY name "lariat_data_Lovely1_Pos_RunI_elanag_v02_v01">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
-<!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
+<!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
 <!ENTITY njobs "1000">
 ]>
 
@@ -33,7 +33,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ca3de002_larana_940acb4.tar</local>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_2e3650ee_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -46,7 +46,7 @@
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
       <memory>4000</memory>
-      <jobsub>--expected-lifetime=long</jobsub>
+      <jobsub>--expected-lifetime=long --mail_never</jobsub>
   </stage>
 
   <stage name="ana">
@@ -83,7 +83,7 @@
       <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
-      <jobsub>--expected-lifetime=long</jobsub>
+      <jobsub>--expected-lifetime=long --mail_never</jobsub>
   </stage>
 
   <stage name="beamLineAna">

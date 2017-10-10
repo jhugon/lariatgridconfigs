@@ -9,7 +9,7 @@
 <!ENTITY name "lariat_data_tof_calib_runs_dsoverus_v01">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
-<!ENTITY myworkdir "/lariat/app/users/jhugon/lariatOffline">
+<!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
 <!ENTITY njobs "661">
 ]>
 
@@ -29,7 +29,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/lariat/app/users/jhugon/genPionAbsAndChEx/lariatsoft_ca3de002_larana_940acb4.tar</local>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_2e3650ee_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -40,7 +40,7 @@
       <outdir>&myoutdir;/&release;/eventbuilder/&name;</outdir>
       <workdir>&myworkdir;/&release;/eventbuilder/&name;</workdir>
       <numjobs>&njobs;</numjobs>
-      <jobsub>--expected-lifetime=1h</jobsub>
+      <jobsub>--expected-lifetime=1h --mail_never</jobsub>
   </stage>
 
   <stage name="tofrecoonly_runI">
