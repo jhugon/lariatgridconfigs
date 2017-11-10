@@ -1,30 +1,29 @@
 <?xml version="1.0"?>
 
-<!-- Production Project -->
-
 <!DOCTYPE project [
 <!ENTITY release "v06_34_01">
-<!ENTITY file_type "mc">
+<!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_cosmics_smear50perc_v1">
+<!ENTITY name "lariat_data_Lovely1_Pos_RunII_jhugon_current100_secondary64_gt9785_v1_tribBit11_v01">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
-<!ENTITY njobs "10">
+<!ENTITY njobs "90">
 ]>
 
 <project name="&name;">
 
-  <!-- Project size -->
-  <numevents>18000</numevents>
-  <!-- Try to do 1800 events/job  ~2hr for reco -->
+  <!-- Project size 431 files-->
+  <numevents>-1</numevents>
+  <maxfilesperjob>5</maxfilesperjob>
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
-  <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
-  <memory>1500</memory> <!-- RecoMC seems to max out around 1177 MB -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+  <memory>600</memory>
+  <jobsub>--expected-lifetime=3h --mail_never</jobsub>
 
   <!-- Larsoft information -->
   <larsoft>
@@ -35,22 +34,17 @@
 
   <!-- Project stages -->
 
-  <stage name="gensimdigi">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_cosmics_smear50perc.fcl</fcl>
-      <outdir>&myoutdir;/&release;/gensimdigi/&name;</outdir>
-      <workdir>&myworkdir;/&release;/gensimdigi/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>simulated</datatier>
-      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
-  </stage>
-
   <stage name="reco">
-      <fcl>RecoMC.fcl</fcl>
+      <inputdef>Lovely1_Pos_RunII_jhugon_current100_secondary64_run_gt9785_v1</inputdef>
+      <fcl>triggerBitFilter.fcl</fcl>
+      <fcl>Reco_run2.fcl</fcl>
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+      <memory>1500</memory>
       <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+      <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
   </stage>
 
   <stage name="cosmicAna">
@@ -60,17 +54,7 @@
       <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
-      <jobsub>--expected-lifetime=1h --mail_never</jobsub>
-  </stage>
-
-  <stage name="cosmicAna2">
-      <fcl>cosmicAnalyzer.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
-      <outdir>&myoutdir;/&release;/cosmicAna2/&name;</outdir>
-      <workdir>&myworkdir;/&release;/cosmicAna2/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>analyzed</datatier>
-      <jobsub>--expected-lifetime=1h --mail_never</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
   </stage>
 
   <!-- file type -->
