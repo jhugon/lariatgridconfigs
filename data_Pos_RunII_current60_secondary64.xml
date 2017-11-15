@@ -13,7 +13,7 @@
 
 <project name="&name;">
 
-  <!-- Project size -->
+  <!-- Project size 17078 files -->
   <numevents>-1</numevents>
   <maxfilesperjob>10</maxfilesperjob>
 
