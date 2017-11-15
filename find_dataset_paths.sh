@@ -1,6 +1,6 @@
 #!/bin/bash
 
-samweb list-files $@ >> filenames.txt
+samweb list-definition-files $1 >> filenames.txt
 while read in; do 
   #echo $in; 
   pathname=$(samweb locate-file $in); 
