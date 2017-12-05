@@ -4,11 +4,11 @@
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_run8603_filterCosmic_v01">
+<!ENTITY name "lariat_data_run8603_filterCosmic_v04">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
-<!ENTITY njobs "40">
+<!ENTITY njobs "42">
 ]>
 
 <project name="&name;">
@@ -29,7 +29,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_53f1a16b_larana_caa2483.tar</local>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_f4fac5c5_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -37,7 +37,7 @@
   <stage name="reco">
       <inputdef>jhugon_r8603_digits</inputdef>
       <fcl>triggerBitFilterCosmic.fcl</fcl>
-      <fcl>Reco_run2.fcl</fcl>
+      <fcl>Reco_run2_noBeamline.fcl</fcl>
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
