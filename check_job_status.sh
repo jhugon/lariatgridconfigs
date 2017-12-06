@@ -14,15 +14,12 @@ while getopts "v:e:pa" opt; do
       ;;
     e)
       eventsverbose=$OPTARG
-      echo "option e!"
       ;;
     p)
       eventspass="1"
-      echo "option p!"
       ;;
     a)
       eventsall="1"
-      echo "option a!"
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2

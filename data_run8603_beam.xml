@@ -4,18 +4,18 @@
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_run8603_filterBeamlineHighYield_v01">
+<!ENTITY name "lariat_data_run8603_filterBeamlineHighYield_v02">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
-<!ENTITY njobs "42">
+<!ENTITY njobs "7">
 ]>
 
 <project name="&name;">
 
   <!-- Project size 186 files-->
   <numevents>-1</numevents>
-  <maxfilesperjob>5</maxfilesperjob>
+  <maxfilesperjob>30</maxfilesperjob>
 
   <!-- Operating System -->
   <os>SL6</os>
