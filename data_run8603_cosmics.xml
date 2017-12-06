@@ -44,7 +44,7 @@
       <numjobs>&njobs;</numjobs>
       <memory>1500</memory>
       <jobsub>--expected-lifetime=3h --mail_never</jobsub>
-      <resource>OFFSITE</resource>
+      <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
   </stage>
 
   <stage name="cosmicAna">

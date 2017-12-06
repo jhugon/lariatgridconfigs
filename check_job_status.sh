@@ -1,6 +1,6 @@
 #!/bin/bash
 
-usagestr="usage: ./check_job_status.sh [-v <0/1>] [-e <0/1>] <dirname> <njobs>"
+usagestr="usage: ./check_job_status.sh [-v <0/1>] [-e <0/1>] [-p] [-a] <dirname> <njobs>"
 
 verbose=""
 eventsverbose=""
@@ -23,10 +23,12 @@ while getopts "v:e:pa" opt; do
       ;;
     \?)
       echo "Invalid option: -$OPTARG" >&2
+      echo $usagestr >&2
       exit 1
       ;;
     :)
       echo "Option -$OPTARG requires an argument." >&2
+      echo $usagestr >&2
       exit 1
       ;;
   esac
@@ -37,6 +39,8 @@ njobs=${@:$OPTIND+1:1}
 
 cd $basedir
 
+stage0evttotal=0
+stage1evttotal=0
 for i in $(seq 1 $njobs); do 
   d=(*_$i); 
   nmatches=$(ls $d 2>/dev/null | wc -w)
@@ -54,10 +58,14 @@ for i in $(seq 1 $njobs); do
       eventsstr0=$(grep -o 'Events total = [0-9]* passed = [0-9]*' $d/larStage0.out 2>/dev/null | cut -f3- -d"=")
       eventsstr1=$(grep -o 'Events total = [0-9]* passed = [0-9]*' $d/larStage1.out 2>/dev/null | cut -f3- -d"=")
       eventsstr=$eventsstr0$eventsstr1
+      stage0evttotal=$(( stage0evttotal + eventsstr0 ))
+      stage1evttotal=$(( stage1evttotal + eventsstr1 ))
     elif [ -n "$eventsall" ]; then
       eventsstr0=$(grep -o 'Events total = [0-9]*' $d/larStage0.out 2>/dev/null | cut -f2- -d"=")
       eventsstr1=$(grep -o 'Events total = [0-9]*' $d/larStage1.out 2>/dev/null | cut -f2- -d"=")
       eventsstr=$eventsstr0$eventsstr1
+      stage0evttotal=$(( stage0evttotal + eventsstr0 ))
+      stage1evttotal=$(( stage1evttotal + eventsstr1 ))
     fi
     #echo $i $jobid $(cat $d/larStage0.stat) $(cat $d/larStage1.stat) $(cat $d/hostname.txt) $stage0time $stage1time; 
     echo $i $jobid $stage0stat $stage1stat $host $stage0time $stage1time $eventsstr
@@ -68,3 +76,8 @@ for i in $(seq 1 $njobs); do
     echo "$i not found"
   fi #filenames
 done
+
+if [ -n "$eventspass" ] || [ -n "$eventsall" ]; then
+  echo "Stage 0 total events: $stage0evttotal"
+  echo "Stage 1 total events: $stage1evttotal"
+fi
