@@ -4,7 +4,7 @@
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_run8603_filterCosmic_v04">
+<!ENTITY name "lariat_data_run8603_filterBeamlineHighYield_v01">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
@@ -36,7 +36,7 @@
 
   <stage name="reco">
       <inputdef>jhugon_r8603_digits</inputdef>
-      <fcl>triggerBitFilterCosmic.fcl</fcl>
+      <fcl>triggerBitFilterHighYieldBeamline.fcl</fcl>
       <fcl>Reco_run2_noBeamline.fcl</fcl>
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
@@ -47,14 +47,14 @@
       <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
   </stage>
 
-  <stage name="cosmicAna">
-      <fcl>cosmicAnalyzer.fcl</fcl>
+  <stage name="piAbsSelector">
+      <fcl>piAbsSelector.fcl</fcl>
       <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
-      <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
-      <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
+      <outdir>&myoutdir;/&release;/piAbsSelector/&name;</outdir>
+      <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
       <numjobs>&njobs;</numjobs>
-      <datatier>analyzed</datatier>
-      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+      <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=1h --mail_never</jobsub>
   </stage>
 
   <!-- file type -->
