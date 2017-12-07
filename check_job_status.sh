@@ -1,6 +1,6 @@
 #!/bin/bash
 
-usagestr="usage: ./check_job_status.sh [-v <0/1>] [-e <0/1>] [-p] [-a] <dirname> <njobs>"
+usagestr="usage: ./check_job_status.sh [-v <0/1>] [-e <0/1>] [-p] [-a] <dirname>"
 
 verbose=""
 eventsverbose=""
@@ -32,20 +32,43 @@ while getopts "v:e:pa" opt; do
       exit 1
       ;;
   esac
-  #shift $((OPTIND-1))
 done
 basedir=${@:$OPTIND:1}
-njobs=${@:$OPTIND+1:1}
 
 cd $basedir
 
+# figure out how many job outputs are in the outdirectory
+njobsfound=0
+allfns=$(ls)
+for fn in $(ls); do
+  thisjob=$(echo $fn | grep '[0-9]\{1,\}_[0-9]\{1,\}' | cut -f2- -d"_")
+  thisjob=${thisjob// /}
+  if [ -n "$thisjob" ]; then
+    if [ $thisjob -gt $njobsfound ]; then
+        njobsfound=$thisjob;
+    fi
+  fi
+done
+
+#do the printing
 stage0evttotal=0
 stage1evttotal=0
-for i in $(seq 1 $njobs); do 
+for i in $(seq 0 $njobsfound); do 
   d=(*_$i); 
   nmatches=$(ls $d 2>/dev/null | wc -w)
+  #ds=*_$i
+  #nmatches=$(echo $ds | wc -w)
   if [ 0 -lt $nmatches ]; then
-    jobid=${d%_$i}; 
+    #d=""
+    #jobid=0
+    #for d2 in $ds; do
+    #  jobid2=${d2%_$i}
+    #  if [ $jobid2 -gt $jobid ]; then
+    #    jobid=$jobid2
+    #    d=$d2;
+    #  fi
+    #done
+    #echo $jobid $d
     stage0time=$(grep -o "Real = .*" $d/larStage0.out 2>/dev/null | cut -f2- -d"=")
     stage1time=$(grep -o "Real = .*" $d/larStage1.out 2>/dev/null | cut -f2- -d"=")
     stage0stat=$(cat $d/larStage0.stat 2>/dev/null)
