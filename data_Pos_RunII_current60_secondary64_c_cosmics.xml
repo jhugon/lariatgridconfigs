@@ -15,7 +15,7 @@
 
   <!-- Project size 5532 files -->
   <numevents>-1</numevents>
-  <maxfilesperjob>10</maxfilesperjob>
+  <maxfilesperjob>50</maxfilesperjob>
 
   <!-- Operating System -->
   <os>SL6</os>

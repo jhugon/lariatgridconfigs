@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v3 just like v2 just more events total -->
-<!-- for v4 just like v3, just back to not-smeared -->
+<!-- for v1 not smeared -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v4">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_isoInTPC_p_v1">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
@@ -56,16 +55,6 @@
       <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/likelihood/&name;</outdir>
       <workdir>&myworkdir;/&release;/likelihood/&name;</workdir>
-      <numjobs>&njobs;</numjobs>
-      <datatier>reconstructed-2d</datatier>
-      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
-  </stage>
-
-  <stage name="ana">
-      <fcl>AnaTree.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
-      <outdir>&myoutdir;/&release;/ana/&name;</outdir>
-      <workdir>&myworkdir;/&release;/ana/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
       <jobsub>--expected-lifetime=3h --mail_never</jobsub>
