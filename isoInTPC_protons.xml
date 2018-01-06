@@ -11,7 +11,7 @@
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
-<!ENTITY njobs "90">
+<!ENTITY njobs "115">
 ]>
 
 <project name="&name;">
@@ -32,7 +32,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_53f1a16b_larana_caa2483.tar</local>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_f4874edd_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -46,8 +46,7 @@
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
       <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
-      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
-      <memory>500</memory>
+      <jobsub>--expected-lifetime=8h --mail_never</jobsub>
   </stage>
 
   <stage name="likelihood">
