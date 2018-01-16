@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE project [
+<!ENTITY release "v06_34_01">
+<!ENTITY file_type "data">
+<!ENTITY run_type "physics">
+<!ENTITY name "lariat_data_Lovely1_Neg_RunII_jhugon_current100_secondary64_b_v1_cosmics_nocrct_v02">
+<!ENTITY tag "TestOfBatchJobs">
+<!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
+<!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
+<!ENTITY njobs "110">
+]>
+
+<project name="&name;">
+
+  <!-- Project size 4986 files -->
+  <numevents>-1</numevents>
+  <maxfilesperjob>50</maxfilesperjob>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+  <memory>600</memory>
+  <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+
+  <!-- Larsoft information -->
+  <larsoft>
+      <tag>&release;</tag>
+      <qual>e14:prof</qual>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_792f9356_larana_caa2483.tar</local>
+  </larsoft>
+
+  <!-- Project stages -->
+
+  <stage name="reco">
+      <inputdef>Lovely1_Neg_RunII_jhugon_current100_secondary64_b_v1</inputdef>
+      <fcl>triggerBitFilterCosmic.fcl</fcl>
+      <fcl>Reco_NodQdxCorrection_noBeamline.fcl</fcl>
+      <outdir>&myoutdir;/&release;/reco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/reco/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+      <memory>1000</memory>
+      <jobsub>--expected-lifetime=8h --mail_never</jobsub>
+      <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+  </stage>
+
+  <stage name="cosmicAna">
+      <fcl>cosmicAnalyzer.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
+      <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>analyzed</datatier>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>
