@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+
+<!DOCTYPE project [
+<!ENTITY release "v06_34_01">
+<!ENTITY file_type "data">
+<!ENTITY run_type "physics">
+<!ENTITY name "lariat_data_Lovely1_Neg_RunII_jhugon_current60_secondary64_a_v1_v01">
+<!ENTITY tag "TestOfBatchJobs">
+<!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
+<!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
+<!ENTITY njobs "563">
+]>
+
+<project name="&name;">
+
+  <!-- Project size 5066 files -->
+  <numevents>-1</numevents>
+  <maxfilesperjob>10</maxfilesperjob>
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+  <memory>600</memory>
+  <jobsub>--expected-lifetime=1h --mail_never</jobsub>
+
+  <!-- Larsoft information -->
+  <larsoft>
+      <tag>&release;</tag>
+      <qual>e14:prof</qual>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_792f9356_larana_caa2483.tar</local>
+  </larsoft>
+
+  <!-- Project stages -->
+
+  <stage name="reco">
+      <inputdef>Lovely1_Neg_RunII_jhugon_current60_secondary64_a_v1</inputdef>
+      <fcl>triggerBitFilterHighYieldBeamline.fcl</fcl>
+      <fcl>Reco_run2.fcl</fcl>
+      <outdir>&myoutdir;/&release;/reco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/reco/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+      <memory>1000</memory>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+      <resource>DEDICATED,OPPORTUNISTIC</resource>
+  </stage>
+
+  <stage name="ana">
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <fcl>AnaTree.fcl</fcl>
+      <outdir>&myoutdir;/&release;/ana/&name;</outdir>
+      <workdir>&myworkdir;/&release;/ana/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+  </stage>
+
+  <stage name="piAbsSelector">
+      <fcl>piAbsSelector.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/piAbsSelector/&name;</outdir>
+      <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+  </stage>
+
+  <stage name="piAbsSelector2">
+      <fcl>piAbsSelector.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/piAbsSelector2/&name;</outdir>
+      <workdir>&myworkdir;/&release;/piAbsSelector2/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+  </stage>
+
+  <stage name="wctofreco">
+      <inputdef>Lovely1_Neg_RunII_jhugon_current60_secondary64_v1</inputdef>
+      <fcl>WCTOFRecoOnly_run2.fcl</fcl>
+      <outdir>&myoutdir;/&release;/wctofreco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/wctofreco/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+      <jobsub>--expected-lifetime=long --mail_never</jobsub>
+  </stage>
+
+  <stage name="beamLineAna">
+      <inputlist>&myoutdir;/&release;/wctofreco/&name;/files.list</inputlist>
+      <fcl>beamLineAnaTree.fcl</fcl>
+      <outdir>&myoutdir;/&release;/beamLineAna/&name;</outdir>
+      <workdir>&myworkdir;/&release;/beamLineAna/&name;</workdir>
+      <datatier>reconstructed-2d</datatier>
+      <numjobs>&njobs;</numjobs>
+  </stage>
+
+  <stage name="cosmicAna">
+      <fcl>cosmicAnalyzer.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
+      <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>analyzed</datatier>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+  </stage>
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>
