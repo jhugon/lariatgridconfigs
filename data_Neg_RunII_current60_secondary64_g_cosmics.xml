@@ -29,7 +29,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_b710afc5_larana_caa2483.tar</local>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_3a15a6a_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->
@@ -43,7 +43,7 @@
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
       <memory>1000</memory>
-      <jobsub>--expected-lifetime=8h --mail_never</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
       <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
   </stage>
 

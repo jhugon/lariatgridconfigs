@@ -4,7 +4,7 @@
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_Lovely1_Pos_RunII_jhugon_current60_secondary64_c_v1_v01">
+<!ENTITY name "lariat_data_Lovely1_Pos_RunII_jhugon_current60_secondary64_c_v1_v02">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
@@ -29,15 +29,14 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_b710afc5_larana_caa2483.tar</local>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_3a15a6a_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->
 
   <stage name="reco">
       <inputdef>Lovely1_Pos_RunII_jhugon_current60_secondary64_c_v1</inputdef>
-      <fcl>triggerBitFilterHighYieldBeamline.fcl</fcl>
-      <fcl>Reco_run2.fcl</fcl>
+      <fcl>Reco_run2_reqWCTrack.fcl</fcl>
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
