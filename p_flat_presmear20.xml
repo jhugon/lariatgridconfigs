@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+
+<!-- Production Project -->
+
+<!DOCTYPE project [
+<!ENTITY release "v06_34_01">
+<!ENTITY file_type "mc">
+<!ENTITY run_type "physics">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_p_presmear20_v5">
+<!ENTITY tag "TestOfBatchJobs">
+<!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
+<!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
+<!ENTITY njobs "50">
+]>
+
+<project name="&name;">
+
+  <!-- Project size -->
+  <numevents>25000</numevents>
+  <!-- Try to do 500 events/job  ~2hr for reco -->
+
+  <!-- Operating System -->
+  <os>SL6</os>
+
+  <!-- Batch resources -->
+  <resource>DEDICATED,OPPORTUNISTIC</resource>
+  <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
+
+  <!-- Larsoft information -->
+  <larsoft>
+      <tag>&release;</tag>
+      <qual>e14:prof</qual>
+      <local>/pnfs/lariat/persistent/users/jhugon/tarballs/lariatsoft_61f03a8_larana_caa2483.tar</local>
+  </larsoft>
+
+  <!-- Project stages -->
+
+  <stage name="gensimdigireco">
+      <fcl>prodsingle_lariat_PiAbsAndChEx_p_presmear20perc.fcl</fcl>
+      <fcl>RecoMC.fcl</fcl>
+      <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>simulated</datatier>
+      <datatier>gensimdigireco</datatier>
+      <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+  </stage>
+
+  <stage name="ana">
+      <fcl>AnaTree.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/ana/&name;</outdir>
+      <workdir>&myworkdir;/&release;/ana/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+  </stage>
+
+  <stage name="piAbsSelector">
+      <fcl>piAbsSelector.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/piAbsSelector/&name;</outdir>
+      <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+  </stage>
+
+  <stage name="piAbsSelector2">
+      <fcl>piAbsSelector.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/piAbsSelector2/&name;</outdir>
+      <workdir>&myworkdir;/&release;/piAbsSelector2/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+  </stage>
+
+  <stage name="cosmicAna">
+      <fcl>cosmicAnalyzer.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
+      <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
+      <numjobs>&njobs;</numjobs>
+      <datatier>analyzed</datatier>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
+  </stage>
+
+
+  <!-- file type -->
+  <filetype>&file_type;</filetype>
+
+  <!-- run type -->
+  <runtype>&run_type;</runtype>
+
+</project>
