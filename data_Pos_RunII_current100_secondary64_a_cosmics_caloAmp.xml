@@ -4,16 +4,16 @@
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "data">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_Lovely1_Pos_RunII_jhugon_current60_secondary64_a_v1_cosmics_nocrct_v02">
+<!ENTITY name "lariat_data_Lovely1_Pos_RunII_jhugon_current100_secondary64_a_v1_cosmics_caloAna_v01">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
-<!ENTITY njobs "128">
+<!ENTITY njobs "133">
 ]>
 
 <project name="&name;">
 
-  <!-- Project size 5747 files -->
+  <!-- Project size 5289 files -->
   <numevents>-1</numevents>
   <maxfilesperjob>50</maxfilesperjob>
 
@@ -35,15 +35,15 @@
   <!-- Project stages -->
 
   <stage name="reco">
-      <inputdef>Lovely1_Pos_RunII_jhugon_current60_secondary64_a_v1</inputdef>
+      <inputdef>Lovely1_Pos_RunII_jhugon_current100_secondary64_a_v1</inputdef>
       <fcl>triggerBitFilterCosmic.fcl</fcl>
-      <fcl>Reco_NodQdxCorrection_noBeamline.fcl</fcl>
+      <fcl>Reco_run2_caloAmp_noBeamline.fcl</fcl>
       <outdir>&myoutdir;/&release;/reco/&name;</outdir>
       <workdir>&myworkdir;/&release;/reco/&name;</workdir>
       <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
       <memory>1000</memory>
-      <jobsub>--expected-lifetime=8h --mail_never</jobsub>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
       <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
   </stage>
 
