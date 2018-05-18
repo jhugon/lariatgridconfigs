@@ -1,29 +1,30 @@
 <?xml version="1.0"?>
 
+<!-- Production Project -->
+
 <!DOCTYPE project [
 <!ENTITY release "v06_34_01">
-<!ENTITY file_type "data">
+<!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_data_Lovely1_Neg_RunII_jhugon_current100_secondary64_a_v1_v02">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_p_caloAmp_v5">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
-<!ENTITY njobs "544">
+<!ENTITY njobs "50">
 ]>
 
 <project name="&name;">
 
-  <!-- Project size 4893 files -->
-  <numevents>-1</numevents>
-  <maxfilesperjob>10</maxfilesperjob>
+  <!-- Project size -->
+  <numevents>25000</numevents>
+  <!-- Try to do 500 events/job  ~2hr for reco -->
 
   <!-- Operating System -->
   <os>SL6</os>
 
   <!-- Batch resources -->
   <resource>DEDICATED,OPPORTUNISTIC</resource>
-  <memory>600</memory>
-  <jobsub>--expected-lifetime=1h --mail_never</jobsub>
+  <memory>800</memory> <!-- RecoMC seems to max out around 1177 MB -->
 
   <!-- Larsoft information -->
   <larsoft>
@@ -34,43 +35,46 @@
 
   <!-- Project stages -->
 
-  <stage name="reco">
-      <inputdef>Lovely1_Neg_RunII_jhugon_current100_secondary64_a_v1</inputdef>
-      <fcl>Reco_run2_reqWCTrack.fcl</fcl>
-      <outdir>&myoutdir;/&release;/reco/&name;</outdir>
-      <workdir>&myworkdir;/&release;/reco/&name;</workdir>
-      <datatier>reconstructed-2d</datatier>
+  <stage name="gensimdigireco">
+      <fcl>prodsingle_lariat_PiAbsAndChEx_p.fcl</fcl>
+      <fcl>RecoMC_caloAmp.fcl</fcl>
+      <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
+      <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
       <numjobs>&njobs;</numjobs>
-      <memory>1000</memory>
+      <datatier>simulated</datatier>
+      <datatier>gensimdigireco</datatier>
+      <resource>DEDICATED,OPPORTUNISTIC,OFFSITE</resource>
       <jobsub>--expected-lifetime=3h --mail_never</jobsub>
-      <resource>DEDICATED,OPPORTUNISTIC</resource>
   </stage>
 
   <stage name="ana">
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
       <fcl>AnaTree.fcl</fcl>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/ana/&name;</outdir>
       <workdir>&myworkdir;/&release;/ana/&name;</workdir>
-      <datatier>reconstructed-2d</datatier>
       <numjobs>&njobs;</numjobs>
+      <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
   </stage>
 
   <stage name="piAbsSelector">
       <fcl>piAbsSelector.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/piAbsSelector/&name;</outdir>
       <workdir>&myworkdir;/&release;/piAbsSelector/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
   </stage>
 
   <stage name="piAbsSelector2">
       <fcl>piAbsSelector.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/piAbsSelector2/&name;</outdir>
       <workdir>&myworkdir;/&release;/piAbsSelector2/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>reconstructed-2d</datatier>
+      <jobsub>--expected-lifetime=3h --mail_never</jobsub>
   </stage>
 
   <stage name="cosmicAna">
@@ -82,6 +86,7 @@
       <datatier>analyzed</datatier>
       <jobsub>--expected-lifetime=3h --mail_never</jobsub>
   </stage>
+
 
   <!-- file type -->
   <filetype>&file_type;</filetype>
