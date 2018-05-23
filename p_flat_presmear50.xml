@@ -1,24 +1,23 @@
 <?xml version="1.0"?>
 
 <!-- Production Project -->
-<!-- for v1 first try with v06_34_01, just 1000, 10 jobs -->
 
 <!DOCTYPE project [
 <!ENTITY release "v06_34_01">
 <!ENTITY file_type "mc">
 <!ENTITY run_type "physics">
-<!ENTITY name "lariat_PiAbsAndChEx_flat_pip_presmear30_v6">
+<!ENTITY name "lariat_PiAbsAndChEx_flat_p_presmear50_v5">
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
-<!ENTITY njobs "670">
+<!ENTITY njobs "50">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>100000</numevents>
-  <!-- Try to do 310 events/job  ~2hr for reco -->
+  <numevents>25000</numevents>
+  <!-- Try to do 500 events/job  ~2hr for reco -->
 
   <!-- Operating System -->
   <os>SL6</os>
@@ -37,7 +36,7 @@
   <!-- Project stages -->
 
   <stage name="gensimdigireco">
-      <fcl>prodsingle_lariat_PiAbsAndChEx_pip_presmear30perc.fcl</fcl>
+      <fcl>prodsingle_lariat_PiAbsAndChEx_p_presmear50perc.fcl</fcl>
       <fcl>RecoMC.fcl</fcl>
       <outdir>&myoutdir;/&release;/gensimdigireco/&name;</outdir>
       <workdir>&myworkdir;/&release;/gensimdigireco/&name;</workdir>
@@ -80,13 +79,14 @@
 
   <stage name="cosmicAna">
       <fcl>cosmicAnalyzer.fcl</fcl>
-      <inputlist>&myoutdir;/&release;/gensimdigireco/&name;/files.list</inputlist>
+      <inputlist>&myoutdir;/&release;/reco/&name;/files.list</inputlist>
       <outdir>&myoutdir;/&release;/cosmicAna/&name;</outdir>
       <workdir>&myworkdir;/&release;/cosmicAna/&name;</workdir>
       <numjobs>&njobs;</numjobs>
       <datatier>analyzed</datatier>
       <jobsub>--expected-lifetime=3h --mail_never</jobsub>
   </stage>
+
 
   <!-- file type -->
   <filetype>&file_type;</filetype>
