@@ -11,7 +11,7 @@
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
-<!ENTITY njobs "670">
+<!ENTITY njobs "1000">
 ]>
 
 <project name="&name;">
@@ -31,7 +31,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/pnfs/lariat/resilient/users/jhugon/lariatsoft_f2f7d40_larana_caa2483.tar</local>
+      <local>/pnfs/lariat/resilient/users/jhugon/lariatsoft_f2c5171_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->

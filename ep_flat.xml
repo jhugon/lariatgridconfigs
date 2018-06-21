@@ -11,13 +11,13 @@
 <!ENTITY tag "TestOfBatchJobs">
 <!ENTITY myoutdir "/pnfs/lariat/scratch/users/jhugon">
 <!ENTITY myworkdir "/pnfs/lariat/scratch/users/jhugon/gridworkdir">
-<!ENTITY njobs "100">
+<!ENTITY njobs "1250">
 ]>
 
 <project name="&name;">
 
   <!-- Project size -->
-  <numevents>8000</numevents>
+  <numevents>50000</numevents>
   <!-- Try to do 120 events/job  ~2hr for reco -->
 
   <!-- Operating System -->
@@ -31,7 +31,7 @@
   <larsoft>
       <tag>&release;</tag>
       <qual>e14:prof</qual>
-      <local>/pnfs/lariat/resilient/users/jhugon/lariatsoft_f2f7d40_larana_caa2483.tar</local>
+      <local>/pnfs/lariat/resilient/users/jhugon/lariatsoft_f2c5171_larana_caa2483.tar</local>
   </larsoft>
 
   <!-- Project stages -->
